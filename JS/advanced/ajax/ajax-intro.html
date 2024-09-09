@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX PART 1</title>
+</head>
+
+<body>
+  <h1>NOTE!!! AJAX EXAMPLES ARE LOCATED IN HTDOCS FOR PHP TO WORK</h1>
+  <h1>AJAX</h1>
+  <h2>INTRO</h2>
+  <h2>XMLHttp</h2>
+  <h2>XMLHttp REQUEST</h2>
+
+  <p id="p1">CHANGE TEXT USING AJAX</p>
+  <button onclick="executeAJAX1()">SEND REQUEST</button>
+
+  <p id="p2">MULTIPLE AJAX TASK 1</p>
+  <p id="p3">MULTIPLE AJAX TASK 2</p>
+  <button onclick="executeAJAX2()">EXECUTE MULTIPLE TASK</button>
+
+  <p id="p4">ONREADYSTATECHANGE EXAMPLE</p>
+  <button onclick="executeAJAX3()">EXECUTE ONREADYSTATECHANGE</button>
+
+  <p id="p5">SIMPLE GET WITH NO CACHED RESULT EXAMPLE</p>
+  <button onclick="executeAJAX4()">EXECUTE GET REQUEST</button>
+
+  <button onclick="executeAJAX5()">SEND INFO USING GET IN ajax_info1.txt</button>
+
+  <p id="p6">SIMPLE POST EXAMPLE</p>
+  <button onclick="executeAJAX6()">EXECUTE POST REQUEST</button>
+
+  <script>
+    //shortcut func to get an element
+    const getElem = (el) => document.querySelector("#" + el + "");
+
+    //ajax can : 
+    //read data from a web server, after the page has loaded
+    //update a web page without reloading the page.
+    //send data to a web server in the background
+    //AJAX - Asychronous JavaSript And XML, it uses a combination of:
+    //browser built-in XMLHttpRequest object (to request data from a web server)
+    //JavaScript and HTML DOM (to display or use the data)
+
+    function executeAJAX1() {
+      //making an ajax func
+      //creating an xmlhttp object
+      const xmlHttpObject1 = new XMLHttpRequest();
+      //defining a callback function
+      xmlHttpObject1.onload = function () {
+        //execute when the response is ready
+        getElem("p1").innerHTML = this.responseText;
+      }
+      //sends a request
+      xmlHttpObject1.open("GET", "ajax_info1.txt");
+      xmlHttpObject1.send();
+    }
+
+    //when u have more than one AJAX task
+    //create 1 function for xmlhttp req and one callback func for each task
+    function executeAJAX2() {
+
+      loadText("ajax_info2.txt", callbackFunc1);
+      loadText("ajax_info3.txt", callbackFunc2);
+
+      function loadText(url, callbackFunc) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+          callbackFunc(this);
+        }
+        xhttp.open("GET", url);
+        xhttp.send();
+      }
+
+      function callbackFunc1(xhttp) {
+        getElem("p2").innerHTML = xhttp.responseText;
+      }
+
+      function callbackFunc2(xhttp) {
+        getElem("p3").innerHTML = xhttp.responseText;
+      }
+
+    }
+
+    //readyState property - holds the status of the XMLHttpRequest
+    //onreadystatechange property - defines a callback function to be exec
+    //when the readyState changes
+    function executeAJAX3() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          getElem("p4").innerHTML = this.responseText + " ONREADYSTATECHANGE FUNC";
+        }
+      }
+      xhttp.open("GET", "ajax_info1.txt");
+      xhttp.send();
+    }
+
+    //open() & send() - to send a request to a server
+    //open(method,url, isAsync)
+    //send() - for GET, send("string") for POST
+    //GET is simpler, used POST for cached file(update a file on db),
+    //sending large amt of data to the server (POST has no size limits),
+    //sending user input (which contain unknown chars), POST is more secure 
+    //and robust than GET
+
+    function executeAJAX4() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+        getElem("p5").innerHTML = this.responseText + " SIMPLE GET REQ";
+      }
+      //using math random to avoid cached result
+      xhttp.open("GET", "ajax_info1.txt?t=" + Math.random());
+      xhttp.send();
+    }
+
+    //sending info usin GET - add the info in the url
+    function executeAJAX5() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+        getElem("p5").innerHTML = this.responseText + " USING GET REQ";
+      }
+      xhttp.open("GET", "ajax_info4.php?fname=John&lname=Doe");
+      xhttp.send();
+    }
+
+    function executeAJAX6() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+        getElem("p6").innerHTML = this.responseText + " USING POST REQ";
+      }
+      xhttp.open("POST", "ajax_info4.php");
+      xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhttp.send("fname=John&lname=Doe");
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>

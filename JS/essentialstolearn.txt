@@ -1,0 +1,15 @@
+
+Learn JS BASICS + the ff :
+
+- Promise, async and await
+- AJAX
+- JQUERY (Optional)
+- JSON
+- FETCH API
+- SPREAD OPERATOR
+- TERNARY OPERATOR
+- OBJECTS
+- FOREACH
+- ARROW FUNCTIONS
+- ARRAY
+- callback functions

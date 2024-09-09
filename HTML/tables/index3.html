@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table part 3</title>
+</head>
+<style>
+    table,
+    td,
+    th {
+        border-bottom: 1px solid black;
+        border-collapse: collapse;
+        font-size: 25px;
+        padding: 10px;
+    }
+
+    tr:hover {
+        background-color:burlywood;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba(150, 212, 212, 0.4);
+    }
+
+    th:nth-child(even), td:nth-child(even) {
+        background-color: rgba(150, 212, 212, 0.4);
+    }
+</style>
+
+<body>
+    <!-- HTML tables can have cells that 
+        span over multiple rows and/or columns. -->
+
+    <!-- colspan = To make a cell span over multiple columns -->
+    <table>
+        <caption>COLSPAN</caption>
+        <tr>
+            <th colspan="2">Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Jack</td>
+            <td>Jill</td>
+            <td>33</td>
+        </tr>
+        <tr>
+            <td>Went</td>
+            <td>Up</td>
+            <td>77</td>
+        </tr>
+    </table>
+    <br>
+    <!-- rowspan = To make a cell span over multiple rows -->
+    <table>
+        <caption>ROWSPAN</caption>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td rowspan="2">Jack</td>
+            <td>99</td>
+        </tr>
+        <tr>
+            <td>88</td>
+        </tr>
+    </table>
+    <br>
+    <!-- table styling zebra stripes -->
+    <table style="width:100%">
+        <tr>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th>SAT</th>
+            <th>SUN</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

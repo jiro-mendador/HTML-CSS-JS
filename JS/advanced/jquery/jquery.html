@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQUERY PART 1</title>
+    <!--since jquery is a js library it requires a script to use-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <style>
+    .special-parag {
+      padding: 5px;
+      background-color: black;
+      color: white;
+    }
+  </style>
+
+  <body>
+    <h1>JQUERY</h1>
+    <h2>SELECTORS</h2>
+    <h2>HTML</h2>
+    <h2>CSS</h2>
+    <h2>HTML DOM</h2>
+
+    <p id="p1">PARAGRAPH 1</p>
+    <p>PARAGRAPH 2</p>
+
+    <div class="div1">
+      <p>this is div 1</p>
+    </div>
+
+    <p class="special-parag">SPECIAL PARAG</p>
+
+    <p id="p2">SAMPLE TEXT</p>
+    <p id="p3">SAMPLE TEXT</p>
+
+    <div></div>
+
+    <p id="p4">HIDE THIS PARAGRAPH</p>
+    <button id="btnHide">HIDE</button>
+    <button id="btnShow">SHOW</button>
+
+    <div id="div3">THIS DIV WILL BE STYLED USING JQUERY</div>
+
+    <p id="p5">REMOVE THIS ELEMENT</p>
+    <button id="btnRemove">REMOVE</button>
+
+    <script>
+      // jquery = designed to handle incompatibilities, simplify DOM manipulation,
+      // event handling, animations and ajax
+      // 10+ YEARS OF BEING MOST POPULAR JS LIBRARY
+
+      //jquery for windiws.onload
+      $(document).ready(function () {
+        //using jquery for finding elem with id
+        var jqEl1 = $("#p1");
+        jqEl1.text("TEXT CHANGED USING JQUERY1");
+
+        //finding element by tag name
+        let parags = $("p");
+        //when u use js arr access u'll used innerHTML not .text()
+        parags[1].innerHTML = "TEXT CHANGED USING JQUERY2";
+
+        //finding elem by class name
+        let div1 = $(".div1");
+        div1[0].innerHTML = "TEXT CHANGED USING JQUERY3";
+
+        //finding elem using css selectors
+        let spec_p = $("p.special-parag");
+        spec_p[0].innerHTML = "THIS IS A SPECIAL PARAG";
+
+        //setting innerText of an element
+        $("#p2").text("HELLO JQUERY1");
+
+        //getting the inner text of an element
+        $("#p3").text($("#p2").text());
+
+        //setting html of an element
+        let div2 = $("div:nth-child(2):not(.div1)");
+        div2.html("<h3>TEXT WAS SET WITH .html()</h3>");
+
+        //get html of an element
+        console.log(div1.html());
+
+        //ACCESSING CSS IN JQUERY
+        //hiding and showing element with hide()/show();
+        //adding listener with click();
+        $("#btnHide").click(() => $("#p4").hide());
+        $("#btnShow").click(() => $("#p4").show());
+
+        //styling elements
+        const div3 = $("#div3");
+        div3.css("margin", "1em");
+        div3.css("padding", "1em");
+        div3.css("border", "2px solid black");
+        div3.css("text-align", "center");
+        div3.css("background-color", "tomato");
+        div3.css("color", "white");
+
+        //ACCESSING DOM W/ JQUERY
+        $("#btnRemove").click(function () {
+          $("#p5").remove();
+          this.remove();
+        });
+
+        //GETTING PARENT ELEMENT
+        const parent = $("#p1").parent().prop("nodeName");
+        console.log(parent); //body
+      });
+    </script>
+  </body>
+</html>

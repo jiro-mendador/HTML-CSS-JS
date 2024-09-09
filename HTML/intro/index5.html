@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics part 5</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- picture tag allows the dev 
+        to have more flexibility in resizing image based on screen sizes -->
+    <picture>
+        <source media="(min-width : 1080px)" srcset="img1.png">
+        <source media="(min-width : 540px)" srcset="img2.jpg">
+        <img src="img2.jpg" alt="moon photo">
+    </picture>
+    <!-- NOTE : Always specify an <img> element as the last child 
+        element of the <picture> element. The <img> element is used by 
+        browsers that do not support the <picture> element, 
+        or if none of the <source> tags match. -->
+
+    <!-- favicon image is displayed to the left of 
+        the page title in the browser tab-->
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="title1">DOM part 5</title>
+  <style>
+    #outerDiv,
+    #innerDiv {
+      padding: 10px;
+    }
+
+    #outerDiv {
+      background-color: tomato;
+    }
+
+    #innerDiv {
+      background-color: beige;
+    }
+  </style>
+</head>
+
+<body id="body1">
+  <h1>DOM</h1>
+  <h2>NAVIGATION</h2>
+  <h2 id="repH2">NODES</h2>
+
+  <p id="p1">COPY THIS TO SECOND PARAGRAPH</p>
+  <p id="p2"></p>
+  <button id="btn1">CLICK TO REMOVE LAST PARAGRAPH</button>
+  <button id="btn2">CLICK TO REMOVE HEADING 1</button>
+
+  <div id="outerDiv">
+    OUTER DIV
+    <div id="innerDiv">INNER DIV</div>
+  </div>
+
+  <button id="btn3">CLICK REMOVE INNER DIV</button>
+
+  <script>
+    //dom nodes - everything in html is a node
+    //html > 1st child head > 1st child title
+    //html > last child body 
+
+    //navigating between nodes
+    //parentNode
+    //childNodes[nodeNumber]
+    //firstChild
+    //lastChild
+    //nextSibling
+    //previouSibling
+
+    //navigating
+    //common way
+    console.log(document.querySelector("#title1").innerHTML);
+    //using nodes
+    console.log(document.querySelector("#title1").childNodes[0].nodeValue);
+    console.log(document.querySelector("#title1").firstChild.nodeValue);
+    //because title has text and that text is the title's child 
+    //to access the text u'll use nodeValue 
+    //innerHTML is equals to nodeValue of a child
+
+    //another example of accessing title text
+    console.log(document.documentElement.firstChild.childNodes[5].firstChild.nodeValue);
+
+    const p1 = document.querySelector("#p1").firstChild.nodeValue;
+    document.querySelector("#p2").innerHTML = p1;
+
+    //DOM ROOT NOTES
+    console.log(document.body.children[0].firstChild.nodeValue);
+
+    //NOTE!!!!!
+    //when using firstChild or childrenNode[0]. sometimes firstChild 
+    //return a #text bc of spaces or br before the actual 1st child
+    //using children[0] instead will truly give the 1st child 
+    //bc it only returns element unlike 
+    //childrenNodes[0] where non-element nodes are accessible
+
+    //this allow access to whole document
+    //document.body - returns the body element
+    //document.documentElement - returns the html element/root
+
+    //creating new html elements(nodes)
+    const newParag1 = document.createElement("p");
+    const textNode1 = document.createTextNode("A NEW TEXT NODE");
+    newParag1.appendChild(textNode1);
+    document.body.appendChild(newParag1);
+
+    //inserting element before an element
+    const newParag2 = document.createElement("p");
+    newParag2.appendChild(document.createTextNode("INSERTED BEFORE PARAG 2"));
+    document.body.insertBefore(newParag2, document.querySelector("#p2"));
+    //to be inserted, basis element
+
+    //removing an element in the body
+    document.querySelector("#btn1").onclick = function () {
+      if (document.getElementsByTagName("p").length > 0)
+        document.body.removeChild(document.getElementsByTagName("p")[document.getElementsByTagName("p").length - 1]);
+    }
+    //or using .remove();
+    const btn2 = document.querySelector("#btn2");
+    btn2.addEventListener("click", function () {
+      const heading1 = document.getElementsByTagName("h1");
+      if (heading1.length > 0) heading1[0].remove();
+    });
+
+    //easiest way
+    //accessing the .parentNode without finding it
+    document.querySelector("#btn3").addEventListener("click", function () {
+      if (document.querySelector("#innerDiv") !== null)
+        document.querySelector("#innerDiv").parentNode.removeChild(document.querySelector("#innerDiv"));
+    });
+
+    //replacing child
+    const heading2 = document.querySelector("#repH2");
+    const newHeading2 = document.createElement("h2");
+    newHeading2.appendChild(document.createTextNode("NODES"));
+    newHeading2.style.color = "green";
+    heading2.parentNode.replaceChild(newHeading2, heading2);
+
+  </script>
+</body>
+
+</html>

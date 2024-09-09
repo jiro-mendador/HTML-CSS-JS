@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables part 2</title>
+</head>
+<style>
+    th , td, table {
+        border:1px solid black;
+        padding:10px;
+        border-collapse: collapse;
+    }
+
+    th {
+        text-align:left;
+    }
+
+</style>
+<body>
+    <!-- vertical table headers-->
+    <table style="width: 100%;">
+        <tr>
+            <th>Name</th>
+            <td>Jiro</td>
+            <td>Jona</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>21</td>
+            <td>23</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <!-- header for multiple columns -->
+    <!-- caption serves as the header for the whole table-->
+    <table>
+        <caption>MEMA LUNGS</caption>
+        <tr>
+            <th colspan="2">Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>HAHA</td>
+            <td>HEHE</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>HIHI</td>
+            <td>HOHO</td>
+            <td>95</td>
+        </tr>
+    </table>
+
+    <!-- use border-spacing:value+px To change the space between table cells -->
+
+</body>
+</html>

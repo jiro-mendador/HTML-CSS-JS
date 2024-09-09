@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table part 4</title>
+</head>
+<style>
+    table, th, td {
+        border-bottom: 1px solid black;
+        border-collapse: collapse;
+        padding:10px;
+    }
+
+    tr:nth-child(even) {
+        background-color: bisque;
+    }
+
+</style>
+<body>
+    <!-- The <colgroup> element is used to style 
+        specific columns of a table. -->
+        <table>
+            <caption>COLGROUP</caption>
+            <colgroup>
+                <col span="2" style="background-color: darkcyan;">
+                <col span="2" style="background-color: slategray;">
+                <col span="2"> <!-- this is an empty colgroup -->
+                <col span="1" style="background-color: yellow;">
+                <!-- u can also hide colgroup by using visibility: collapse -->
+            </colgroup>
+            <tr>
+                <th>MON</th>
+                <th>TUE</th>
+                <th>WED</th>
+                <th>THU</th>
+                <th>FRI</th>
+                <th>SAT</th>
+                <th>SUN</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms part 2</title>
+</head>
+
+<body>
+  <!-- form elements 
+    <input>
+    <label>
+    <select>
+    <textarea>
+    <button>
+    <fieldset>
+    <legend>
+    <datalist>
+    <output>
+    <option>
+    <optgroup>  
+  -->
+
+  <p>The input element</p>
+  <form>
+    <label for="fname">First Name : </label>
+    <input type="text" id="fname" name="fname">
+  </form>
+  <hr>
+
+  <p>The select element</p>
+  <form>
+    <label for="cars">Choose a car : </label>
+    <select name="cars" id="cars" size="1">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="fiat" selected>Fiat</option>
+      <option value="audi">Audi</option>
+    </select>
+  </form>
+  <hr>
+
+  <!-- 
+    to define a pre selected option add the selected attr
+    size attr determines the number of visible values
+    multiple attr allows the user to select multiple values
+  -->
+
+  <p>The textarea element</p>
+  <form>
+    <textarea name="mess" cols="30" rows="10">
+      The cat is playing with the dog.
+    </textarea>
+  </form>
+  <hr>
+
+  <!-- 
+    rows = visible number of lines
+    cols = visible width
+    u can also use CSS like width and height
+  -->
+
+  <p>The button element</p>
+  <form>
+    <button type="button" onclick="alert('Hello, World!')">Click Me</button>
+  </form>
+  <hr>
+
+  <!--
+    NOTE : always specify the type attribute for the button element.
+  -->
+
+  <!--
+    The <fieldset> element is used to group related data in a form.
+    The <legend> element defines a caption for the <fieldset> element.
+  -->
+  <p>The fieldset and legend</p>
+  <form>
+    <fieldset>
+      <legend>Personal Info:</legend>
+      <label for="fname">First name</label><br>
+      <input type="text" id="fname" name="fname" value="John"><br>
+      <label for="lname">Last name</label><br>
+      <input type="text" id="lname" name="lname" value="Doe"><br><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+  <hr>
+
+  <!--
+    datalist - a list of pre defined options for an input element
+    list attr of the input element, 
+    must refer to the id attr of the datalist element
+  -->
+  <p>The datalist element</p>
+  <form>
+    <form>
+      <input list="browsers">
+      <datalist id="browsers">
+        <option value="Internet Explorer"></option>
+        <option value="Firefox"></option>
+        <option value="Chrome"></option>
+        <option value="Opera"></option>
+        <option value="Safari"></option>
+      </datalist>
+    </form>
+  </form>
+  <hr>
+
+  <p>The output element</p>
+  <form action="/action_page.php" oninput="x.value=parseInt(a.value)+
+    parseInt(b.value)">0
+    <input type="range" id="a" name="a" value="50">100 +
+    <input type="number" id="b" name="b" value="50">=
+    <output name="x" for="a b"></output>
+    <br><br>
+    <input type="submit">
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects part 1</title>
+</head>
+
+<body>
+  <h1>Object part 1</h1>
+  <script>
+    //NOTE
+    //Important topics
+    //In JavaScript, objects are king. 
+    //If you understand objects, you understand JavaScript -w3schools :)
+    //Objects are vars too, but it can have multiple values unlike primitives vars
+
+    //ex of object - collection of named values
+    const person = {
+      firstName: "Juan",
+      lastName: "Dela Cruz",
+      age: 24
+    };
+
+    //different ways to create objects
+
+    //obj literal1
+    const dog = {
+      breed: "bully",
+      age: 1,
+      color: "brown",
+      speak: () => {
+        console.log("arf");
+      }
+    };
+
+    //obj literal2
+    const cat = {};
+    cat.name = "burlog";
+    cat.color = "black";
+    cat.spoke = () => console.log("meow");
+
+    cat.spoke();
+    dog.speak();
+
+    //objs are mutable
+    const holder = dog;
+    //this is like creating two reference of dog object
+    //not creating another copy of dog object
+    //changing one property will change both like this
+    holder.age = 2;
+    console.log("dogs age : " + dog.age);
+
+    //syntax for accessing objects
+    /*1*/ cat.spoke();
+    //2 cat["speak"]();
+
+    //3 let x = "speak";
+    //3 cat[x]();
+
+    //looping
+    //for in loops through props of obj
+    for (let i in cat) {
+      console.log(cat[i]);
+    }
+
+    //add another property
+    cat.eyeColor = "blue";
+    //deleting property and value
+    delete cat.speak;
+
+    for (let i in cat) {
+      console.log(i + " : " + cat[i]);
+    }
+
+    //nested objects
+    const person1 = {
+      name: "John",
+      age: 34,
+      bags: {
+        bag1: "hawk",
+        bag2: "adidas",
+        bag3: "nike"
+      }
+    }
+
+    //accessing nested objects is the same with the normal
+    console.log(person1.bags.bag1);//accessing the nested with another (dot)
+    console.log(person1["bags"]["bag2"]);
+
+    let b = "bags", b1 = "bag3";
+    console.log(person1[b][b1]); //or any combination of those will work
+
+    //nested arrays and objects
+    const obj1 = {
+      prop1: "val1",
+      prop2: "val2",
+      cars: [
+        { name: "Ford", models: ["Fiesta", "Focus", "Mustang"] },
+        { name: "BMW", models: ["320", "X3", "x5"] },
+        { name: "Fiat", models: ["500", "Panda"] }
+      ]
+    }
+
+    //to access it
+    console.log(obj1.cars[0].models[0]);
+    console.log(obj1.cars[0].models.length);
+
+    //accessing using arrays
+    for (let i in obj1.cars) {
+      for (let j = 0; j < obj1.cars[i].models.length; j++) {
+        document.write(obj1.cars[i].models[j] + " ");
+      }
+      document.write("<br>");
+    }
+
+    //easy way 2 for in
+    for (let i in obj1.cars) {
+      for (let j in obj1.cars[i].models) {
+        console.log(obj1.cars[i].models[j]);
+      }
+    }
+
+    //object to array
+    const arr1 = Object.values(cat);
+    document.write(arr1 + "<br>");
+
+    //JSON.stringify converts obj to strings, func inside excluded, in json format
+    const str1 = JSON.stringify(dog);
+    document.write(str1 + "<br>"); 
+
+    //obj getter and setter
+    const student = {
+      name : "John Doe",
+      year : "2nd year",
+      course : "",
+
+      //getter and setter of course
+      set studCourse(course)  {
+        this.course = course;
+      },
+      get studCourse() {
+        return this.course;
+      }
+    };
+
+    //just like setting and getting it in normal
+    student.course = "BSCS";
+    console.log(student.course);//much simpler accessing not like func
+    //why use setter and getter? 
+    //to secure better data quality and 
+
+
+  </script>
+</body>
+
+</html>

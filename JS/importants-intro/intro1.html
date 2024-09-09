@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction Important Parts (No Basics)</title>
+</head>
+<style>
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+</style>
+
+<body>
+  <p id="p1">Hello </p>
+  <script>
+    var p = document.getElementById("p1").innerHTML += "JavaScript!";
+    //window.alert("This is a window alert in js");
+    //alert("This is a window alert in js");
+    //window keyword is already global in js it's optional to include it
+    //window.print(); prints the whole page content
+    //let vs var
+    //let = a block variable accessible only inside the {}
+    //var is global
+    const add = (a, b) => (a + b);//shortcut function with return and param
+    console.log(add(5, 10));
+    //hypens not allowed for naming
+
+    //undeclared variables
+    x = 1;
+    y = 2;
+    z = x + y; //3
+    //declared vars
+    var a = 10;
+    var b = 20;
+    var s = add(a, b);
+    console.log(s);
+
+    //diff variable keywords
+    let l = "This is let can be changed";
+    var v = "This is var can be changed";
+    const c = "This is constant and cannot be changed (type/value)";
+
+    l = "Let";
+    v = "Var";
+    //c = "Const"; //wil generate an error
+    console.log(l + " " + v + " " + c);
+
+    //one statement many variables
+    let fName = "Juan", mName = "Dela", lName = "Cruz";
+    console.log(fName + " " + mName + " " + lName);
+    //can span multiple lines
+    var num1 = 1,
+      num2 = 2,
+      num3 = 3;
+    console.log(num1 + num2 + num3);
+
+    var _var = "This is a var and can be re-declared";
+    let _let = "This is a let and cannot be re-declared";
+    var _var = "var redeclared";
+    //let _let = "let redeclared"; //will generate an error
+    console.log(_var + " " + _let);
+    let strings = 1 + 2 + "3"; //concatenating a string in num = string
+    console.log(strings + " is a type of " + typeof (strings));
+
+    //valid var name
+    let $$$ = "3 Dollar Sign";
+    /*
+    let & const = can't redeclare, block scope
+    var = can redeclare, global scope
+    */
+
+    let let1 = "Orig let val";
+    var var1 = "Orig var val";
+    console.log(let1);
+    console.log(var1);
+    //in js u can group block of code using brackets without functions
+    {
+      let let1 = "Changed let val";
+      var var1 = "Changed var val";
+      console.log(let1);
+      console.log(var1);
+    }
+    console.log(let1);
+    console.log(var1);
+
+    //hoisting
+    name = "Jiro";
+    var name = "Jiwo"; //only works in var not in let/const
+    console.log(name);
+
+    //diff functions ways
+    function f1() {
+      console.log("This is f1");
+    }
+    const f2 = function () {
+      console.log("This is f2");
+    }
+    const f3 = () => {
+      console.log("This is f3");
+    }
+
+    //const vals/types can't be reassigned
+    //but its properties and elements can be
+    const cars = ["Volvo", "BMW", "Porsche"];
+    cars[0] = "Toyota"; //changing element
+    //add an element
+    cars.push("Audi");
+    cars.forEach(element => { console.log(element) });
+    console.log(cars.toString());
+    //but cannot reassign the whole array
+    //cars = ["1","2","3"] this will generate error
+
+    const cup = {
+      made: "Glass",
+      color: "Brown",
+      fill: "0%"
+    }
+    cup.color = "black";
+    cup.owner = "Jiro";
+    console.log(cup);
+
+    //important concept in comparison opers
+    let n1 = 1, n2 = 2;
+    let n3 = 3, n4 = 3;
+    console.log(n1 == n2); //false not the same value
+    console.log(n3 === n4); //true equal value and same type
+    console.log(n3 != n4); //false they are the same value
+    console.log(n3 !== n4); //false they are the same value and type
+
+    //comparisons can be used in strings
+    let s1 = "String", s2 = "String";
+    console.log(s1 === s2); //true
+    console.log('A' > 'Z'); //false
+    let name1 = "Jiro";
+    name1 += " Mendador"; //+= works on strings
+    console.log(name1);
+    console.log(name1 instanceof String); //false it should be object to constructor
+
+
+    //arithmetic oper
+    let five = 5;
+    let twofive = five ** 2; //this is the same as Math.pow(x,y);
+    console.log(twofive);
+    console.log(Math.pow(5, 2));
+
+    five **= 2; //shorthand
+    console.log(five);
+
+    //Nullish Coalescing
+    let nullish; //if this has value it will print the value
+    nullish ??= 5; //if there's no val it will print 5
+    console.log(nullish);
+    let samp1 = nullish == null ? "null" : "not null";
+    console.log(`it's ${samp1}`); //u can use $(var) to print but should use ``
+
+    //data types
+    //data obj
+    const date = new Date("2023-09-23");
+    console.log(date);
+
+    //exponent
+    let number1 = 5e6; //adds nth zero at the end
+    let number2 = 5e-6; //adds nth zero at the front 0.n-1 zeroes
+    console.log(number2);
+
+    //object'
+    const person = {
+      firstName: "Jiro",
+      lastName: "Mendador",
+      age: 21,
+      number: "123456789",
+      city: "Caloocan",
+      fullname: function () { return this.firstName + " " + this.lastName }
+    };
+
+    //accessing obj props
+    person.firstName // Jiro Mendador
+    person["firstName"] // Jiro Mendador
+    console.log(person["firstName"] + " same as " + person.firstName);
+    console.log(`Full Name : ${person.fullname()}`);
+
+  </script>
+</body>
+
+</html>

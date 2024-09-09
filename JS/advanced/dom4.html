@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM part 4</title>
+  <style>
+    body>p {
+      max-width: 200px;
+      padding: 1em;
+      background-color: tomato;
+    }
+
+    #div1 {
+      background-color: green;
+      padding: 1em;
+      max-width: 300px;
+      color: white;
+      transition: all 2.5s ease-in-out 0s;
+    }
+
+    #div1>p {
+      background-color: red;
+      padding: 0.5em;
+      transition: all 2.5s ease-in-out 0s;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>DOM</h1>
+  <h2>EVENTS</h2>
+  <h2>EVENTLISTENER</h2>
+
+
+  <h1 id="heading1">CLICK ME TO CHANGE COLOR</h1>
+  <button id="button1" onclick="changeBtnSize(this)">CLICK ME TO CHANGE SIZE</button>
+  <p id="parag1">CLICK TO MAKE THE TEXT BOLD, HOVER TO CHANGE BG COLOR</p>
+
+  <input type="text" name="fname" id="fname">
+
+  <p id="parag2">MOUSEUP</p>
+  <p id="parag3">WINDOW'S WIDTH = </p>
+  <p id="parag4">SUM OF TWO NUMS : </p>
+
+  <div id="div1">
+    <p id="div1p1">DIVS INNER ELEMENT</p>
+  </div>
+
+  <button id="button2">REMOVE WINDOW's LISTENER</button>
+
+  <script>
+    //on click event
+
+    //different ways to add an event
+    //1
+    document.querySelector("#heading1").onclick = function () {
+      this.style.color = this.style.color === "tomato" ? "black" : "tomato";
+    };
+
+    //2
+    function changeBtnSize(object) {
+      object.style.width = "200px";
+      object.style.height = "50px";
+    }
+
+    //3
+    const p1 = document.querySelector("#parag1");
+    p1.addEventListener("click", function () {
+      this.style.fontWeight = "bold";
+    });
+    //or
+    p1.addEventListener("mouseover", changePBgColor);
+    function changePBgColor() {
+      this.style.backgroundColor = "tomato";
+    }
+    p1.addEventListener("mouseleave", function () {
+      this.style.backgroundColor = "white";
+    });
+
+    //it is recommended to use the addEventListener, for versatility flexibility
+    //bc it allows u to add many functions in the same event, or diff event and functions
+    //while the others will just overwrite
+
+    //onload an onunload - events triggered when user enters or leave the page
+    //can be used to deal with cookies
+
+    //onchange - often used in combination with validation of input fields
+    document.querySelector("#fname").addEventListener("change", function () {
+      this.value = this.value.toUpperCase();
+    });
+
+    let p2 = document.querySelector("#parag2");
+    p2.addEventListener("mousedown", function () {
+      this.innerHTML = "MOUSEDOWN";
+    });
+    p2.addEventListener("mouseup", function () {
+      this.innerHTML = "MOUSEUP";
+    });
+
+    //u can add events on windows
+    window.addEventListener("resize", getWindowsWidth);
+    function getWindowsWidth() {
+      document.querySelector("#parag3").innerHTML = "WINDOW'S WIDTH = " + window.innerWidth;
+    }
+
+    //when a function has params
+    document.querySelector("#parag4").addEventListener("click", function () {
+      sum(Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), this);
+    })
+    //make another function then call it inside the triggered func
+    function sum(a, b, object) {
+      object.innerHTML = "SUM OF TWO NUMS : " + (a + b)
+    }
+
+    //for nested elements events, 
+    //to determine which elem's event will trigger first
+    //event bubbling - inner most element will handled first then outer
+    //event capturing - the outer will handled first then inner
+    //put a boolean in the 3rd param to indicate whether to use useCapture or not
+
+    const div1 = document.querySelector("#div1");
+    const div1p1 = document.querySelector("#div1p1");
+
+    div1.addEventListener("click", function () {
+      this.style.backgroundColor = "red";
+      console.log("div1 clicked!");
+    }, true);
+
+    div1p1.addEventListener("click", function () {
+      this.style.backgroundColor = "green";
+      console.log("div1 p1 clicked!");
+    }, true);
+    //when it is set to true outer element will trigger first (userCapture)
+
+    //removing listener
+    document.querySelector("#button2").onclick = function () {
+      window.removeEventListener("resize",getWindowsWidth);
+      //syntax is the same when u add it
+      //NOTE only named events function can be removed, anon funcs are not allowed
+    };
+
+
+
+
+  </script>
+</body>
+
+</html>

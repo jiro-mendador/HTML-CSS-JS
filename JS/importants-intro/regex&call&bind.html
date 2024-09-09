@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regex Errors</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Regex & Errors & Call & Bind</h1>
+  <button onclick="this.style.display=`none`">
+    Click me to remove using this keyword
+  </button>
+  <script>
+    //regex - sequence of chars that forms a search pattern
+    //syntax - /pattern/modifiers ex /HelloWorld/i
+    let text = "Hello World! World";
+    let sText1 = text.search("World"); //returns the position/index
+    let sText2 = text.search(/world/i); //i = case-insensitive
+    console.log(sText2); // 6
+    let rText1 = text.replace("World", "JavaScript");
+    let rText2 = text.replace(/wOrLD/i, "JavaScript");
+    let rText3 = text.replace(/World/g, "JavaScript");
+    console.log(rText3); //Hello JavaScript! JavaScript 
+    let rText4 = text.replace(/hElLO/ig, "Hi");
+    console.log(rText4); //Hi World! World 
+    //test() - ret bool if the pattern exists
+    const pattern = /Jiwo/i;
+    let jiwoExists = pattern.test("HAHAHA JIWO DJASIDJAS ASDIJ");
+    console.log(jiwoExists);
+    console.log(/Hello/.test("WALANG HELLO DITO!!!!"));
+    //exec - ret the found text as obj
+    const execObj = /e/.exec("The best things in life are free!");
+    console.log("Found '" + execObj[0] + "' in index " + execObj.index +
+      " at the text ( " + execObj.input + " )");
+
+    //errors - try catch finally throw
+    try {
+      console.logs("This will generate an error");
+    } catch (error) {
+      console.log(error.message);
+    }
+
+    //throw - allows u to create custom error
+    try {
+      var num = "one two three";
+      if (isNaN(num)) throw "not a number"; //custom error mess
+    } catch (error) {
+      console.log(num + " is a type of " + typeof num +
+        " and " + error);
+    }
+
+    //finally allows u to execute a code no matter what happens in try catch
+    try {
+      cunsule.lug("SAMPLE OUTPUT HERE"); //error
+    } catch (error) {
+      console.log("it has an error : " + error.message); //prints the error
+    } finally {
+      console.log("The program will still execute code inside finally block");
+      //still execute what's inside of this
+    }
+
+    //this - refers to the curr object, or the object that called the function
+    //call() and apply() = uses to call an obj method with another obj as arguments
+    // bind() - borrows a method from another object
+
+    const person1 = {
+      fullname: function () {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+
+    const person2 = {
+      firstName: "Juan",
+      lastName: "Cruz"
+    }
+
+    console.log(person1.fullname.call(person2)); //return Juan Cruz
+
+    const student = {
+      snumber: "12345",
+      sgrade: "99",
+      gradeNumber: function () {
+        return this.snumber + " : " + this.sgrade;
+      }
+    }
+
+    const holder = {
+      snumber: "54321",
+      sgrade: "100"
+    }
+
+    let gradeNum = student.gradeNumber.bind(holder);
+    //to access it should be called gradeNum();
+    console.log(student.gradeNumber.bind(holder)());
+
+
+  </script>
+</body>
+
+</html>

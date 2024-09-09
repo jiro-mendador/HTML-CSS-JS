@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM part 2</title>
+  <style>
+    .change-bg {
+      background-color: black;
+      color: white;
+      padding: 10px;
+    }
+
+    .roundedDiv {
+      border-radius: 15px;
+      padding: 15px;
+      background-color: darkslategrey;
+      margin: 1em;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>DOM</h1>
+  <h2>Elements</h2>
+  <h2>HTML</h2>
+  <p id="p1">This p has id = "p1"</p>
+  <p>This p has no id and class name</p>
+  <div id="div1">
+    <p>Div P 1</p>
+    <p>Div P 2</p>
+    <p>Div P 3</p>
+  </div>
+  <div class="change-bg">
+    <p>THIS DIV HAS BG</p>
+  </div>
+  <div class="roundedDiv">
+    <p>THIS DIV HAS ROUNDED BORDER</p>
+  </div>
+  <div class="roundedDiv">
+    <p>THIS DIV HAS ROUNDED BORDER</p>
+  </div>
+  <div class="roundedDiv">
+    <p>THIS DIV HAS ROUNDED BORDER</p>
+  </div>
+
+  <form id="form1">
+    <label for="name">NAME</label>
+    <input type="text" id="name" readonly value="Juan Dela Cruz"> <br>
+    <label for="age">AGE</label>
+    <input type="text" id="age" readonly value="21">
+  </form>
+
+  <p id="currDate">CURRENT DATE AND TIME IS : </p>
+
+  <br>
+  <img src="images/mountain1.jpg" id="img1" alt="mountain" width="200" height="200">
+  <br>
+  <button id="btnChangeImgSrc">Click to Change img src</button>
+
+  <script>
+    //different ways to find elements
+    //by id
+    const p1 = document.getElementById("p1");
+    //by tag name
+    const p2 = document.getElementsByTagName("p"); //returns an array of elements
+
+    //getting only the elements with the class name inside a specific element
+    const div = document.getElementById("div1");
+    const divP = div.getElementsByTagName("p");
+
+    //by class name
+    const divBg = document.getElementsByClassName("change-bg");//also returns an array
+    divBg[0].style.backgroundColor = "BLACK";
+    divBg[0].getElementsByTagName("p")[0].innerHTML += " " + divBg[0].style.backgroundColor;;
+
+    //by css selectors
+    //use it when u want to find elements that match a css selector like
+    //id,types,attributes,values of attributes
+    //this example finds all divs with the specified class name
+    const roundedDiv = document.querySelectorAll("div.roundedDiv");//returns an array
+    for (const i of roundedDiv) {
+      i.style.backgroundColor = "grey";
+    }
+
+    //getting all forms with specified id
+    const form1 = document.forms["form1"];
+    //accessing its values
+    for (const i of form1) {
+      console.log("<br>" + i.value + "<br>");
+    }
+
+    //changing html contents
+    //attribute
+    let img1 = document.querySelector("#img1");
+    let index = 2;
+    document.getElementById("btnChangeImgSrc").onclick = function () {
+      if(index > 5) index = 1;
+      img1.src = "images/mountain"+index+".jpg";
+      index++;
+    }
+
+    //dynamic content
+    function setDateTime() {
+      document.getElementById("currDate").innerHTML = Date();
+    } 
+    setInterval(setDateTime,1000);
+
+  </script>
+</body>
+
+</html>

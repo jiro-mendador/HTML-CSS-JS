@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables Part 1</title>
+</head>
+
+<!-- this is an internal css -->
+<style>
+    table, td, th {
+        border: 1px solid white;
+        border-collapse: collapse;
+        color: white;
+        padding:10px;
+        border-radius:20px;
+    }
+
+    th {
+        font-size:30px;
+    }
+
+    td {
+        font-size:20px;
+    }
+    
+    th, td {
+        background-color: darkgreen;
+    }
+</style>
+
+<body>
+    <table style="width:100%;">
+        <tr>
+            <th>Name</th>
+            <th style="width:10%;">Age</th>
+            <th style="width:10%;">Gender</th>
+        </tr>
+        <tr>
+            <td>Jiro</td>
+            <td>21</td>
+            <td>Male</td>
+        </tr>
+        <tr style="height:100px;">
+            <td>Jona</td>
+            <td>23</td>
+            <td>Female</td>
+        </tr>
+        <tr>
+            <td>Justin</td>
+            <td>29</td>
+            <td>Male</td>
+        </tr>
+    </table>
+    <!-- 
+        tr = table row
+        th = table header
+        td = table data / cells 
+    -->
+    <!--  border-radius:10px; = for rounded borders-->
+</body>
+</html>

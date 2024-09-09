@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise | Async | Await</title>
+  </head>
+  <body style="background-color: #f1f1f1">
+    <h1>PROMISE &amp; ASYNC &amp; AWAIT</h1>
+    <script>
+      // * What is promise?
+      // * promise - ensures a result on a given task,
+      // * results can be completed(resolve) or failed(reject)
+      // * ex 1
+      let promise1 = new Promise(function (resolve, reject) {
+        let sum = 2 + 2;
+        if (sum === 4) {
+          resolve("Success");
+        } else {
+          reject("Failed");
+        }
+      });
+      // * usage 1
+      promise1
+        .then(function (response) {
+          // console.log("then result is : " + response);
+        })
+        .catch(function (response) {
+          // console.log("catch result is : " + response);
+        });
+
+      // * Promise.all - if u have many promises and u want to wait
+      // * for all of them to finish before doing something else
+      // * ex 2
+      const day1 = new Promise((resolve, reject) => {
+        resolve("Day 1");
+      });
+
+      const day2 = new Promise((resolve, reject) => {
+        resolve("Day 2");
+      });
+
+      const day3 = new Promise((resolve, reject) => {
+        resolve("Day 3");
+      });
+
+      // * usage 2
+      Promise.all([day1, day2, day3]).then(function (responses) {
+        // * NOTE : the then will return an array of all the successful promises
+        // console.log("promise all : ", responses); // this is an array
+      });
+
+      // * additional
+      // * Promise.race - if u have many promises and u want to wait
+      // * for the first one to finish before doing something else
+      // * same as Promise.all but the then will return the first successful promise
+      Promise.race([day1, day2, day3]).then(function (response) {
+        // console.log("promise race ", response); // * only return the first successful promise
+      });
+
+      // * What is async and await? - just a syntactic sugar for promise,
+      // * meaning it makes the code easier to work with
+      // * ex 3 - still using promises
+      function getItem(item) {
+        return new Promise((resolve, reject) => {
+          if (item === "shoes") {
+            resolve("Delivered");
+          } else {
+            reject("Failed");
+          }
+        });
+      }
+
+      function itemCondition(response) {
+        return new Promise((resolve, reject) => {
+          if (response === "Delivered") {
+            resolve("Good");
+          } else {
+            reject("Bad");
+          }
+        });
+      }
+
+      // * usage 3 - still using promises
+      getItem("watch")
+        .then((response) => {
+          console.log("Promise Item : ", response);
+          // * now instead of making another .then in the itemCondition function
+          // * u can just return the itemCondtion function and chain its then to the getItem
+          return itemCondition(response);
+        })
+        .then((conditionResponse) => {
+          console.log("Promise Item condition : ", conditionResponse);
+        })
+        .catch((response) => {
+          console.log("Promise Getting item : ", response);
+        });
+
+      // * ex 4 - using async and await
+      // * await keyword can only be used inside an async function
+      async function processOrder() {
+        // * try catch block is used to catch any errors like the .catch in promises
+        try {
+          // * await keyword will wait for the promise to be resolved or rejected
+          // * before moving on to the next line of code
+          const response = await getItem("watch");
+          console.log("Async/Await Item : ", response);
+          const conditionResponse = await itemCondition(response);
+          console.log("Async/Await Item condition : ", conditionResponse);
+        } catch (error) {
+          console.log("Promise Getting item : ", error);
+        }
+      }
+      // * usage 4 - using async and await
+      processOrder();
+
+      // * Connection of promise on async await
+      // * await - returns the result of the promise
+      // * async - just tells the browser that the function is asynchronous
+      // * and has await keyword inside it
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class part 1</title>
+</head>
+<style>
+    .city {
+        background-color: tomato;
+        color: white;
+        border:2px solid black;
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .note {
+        background-color:burlywood;
+        color: whitesmoke;
+    }
+
+    .bg-green {
+        background-color: green;
+        padding:5px;
+        margin:20px;
+    }
+
+    .tc-white {
+        color: white;
+    }
+
+    button {
+        margin:20px;
+    }
+
+</style>
+<body>
+    <!-- 
+        The class attribute is often used to point to a class name 
+        in a style sheet. It can also be used by a JavaScript to 
+        access and manipulate elements with the specific class name.
+    -->
+    <div class="city">
+        <h2>London</h2>
+        <p><span class="note">London</span> is the capital of England.</p>
+    </div>
+    <div class="city">
+        <h2>Paris</h2>
+        <p><span class="note">Paris</span> is the capital of France.</p>
+    </div>
+    <div class="city">
+        <h2>Tokyo</h2>
+        <p><span class="note">Tokyo</span> is the capital of Japan.</p>
+    </div>
+
+    <!--elements can have multiple classes -->
+    <div class="bg-green tc-white">
+        <p>This div has multiple classes</p>
+    </div>
+
+    <button onclick="hideElements()">Hide Elements</button>
+
+    <!--class name can also be used in javascript -->
+    <script>
+        function hideElements() {
+            var x = document.getElementsByClassName("city");
+            for(var i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

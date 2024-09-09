@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions part 1</title>
+</head>
+
+<body>
+  <h1>FUNCTIONS</h1>
+  <h2>Call()</h2>
+  <h2>Apply()</h2>
+  <h2>Bind()</h2>
+  <script>
+    //self invoking function
+    (function () {
+      console.log("Function is declared and executed");
+    })()//after declaring it is also executed
+    //functions are obj
+
+    //function expressions
+    const f = function (n1, n2) {
+      return n1 + n2;
+    }
+    console.log(f(1, 5));
+
+    //not defining the number of args in a function
+    //using rest parameter
+    function sum(...args) {
+      let sum = 0;
+      args.forEach(element => {
+        sum += element;
+      });
+      return sum;
+    }
+    console.log(sum(5, 5, 5, 5));
+
+    //js have built-in arguments object when functions are called
+    //so u can define a func without param but when called
+    //u can put arguments on it
+    function highestNum() {
+      for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i] > arguments[0]) {
+          arguments[0] = arguments[i];
+        }
+      }
+      return arguments[0];
+    }
+    console.log(highestNum(-6, -7, -2, 30, -1, 1, 10));
+
+    //call method - uses another object's method
+    const person = {
+      fullName: function () {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+
+    const p1 = {
+      firstName: "Juan",
+      lastName: "Dela Cruz"
+    };
+
+    //syntax
+    //name of object owner (dot) method to use (dot) call(borrowing object)
+    console.log(person.fullName.call(p1));
+
+    //u can use call with arguments
+    const ownerObject = {
+      ownerMethod: function (placeholder1, placeholder2) {
+        return this.prop1 + ", " + placeholder1 + ", " + placeholder2
+      }
+    };
+
+    const borrwingObject = {
+      prop1: "prop1 value"
+    };
+    console.log(ownerObject.ownerMethod.call(borrwingObject, "placeholder val1", "placeholder val2"));
+
+    //apply() - same in call()
+    console.log(person.fullName.apply(p1));
+    //diff is apply args is in array, while in call it is in list
+
+    //using apply finding max vals
+    numbers1 = [0, 6, 55, 32, 3, 1, 3, 2, 6, 1, 4];
+    console.log(Math.max.apply(null, numbers1));
+    //using call
+    console.log(Math.max.call(null, 0, 6, 55, 32, 3, 1, 3, 2, 6, 1, 4));
+
+    //bind() is also the same with call()
+    //but makes it a function
+    console.log(person.fullName.bind(p1)());//note the extra () at the end
+
+
+
+  </script>
+</body>
+
+</html>

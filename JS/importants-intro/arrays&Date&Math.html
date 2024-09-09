@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays & Dates & Math</title>
+</head>
+<style>
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+</style>
+
+<body>
+
+  <h1>Arrays & Dates & Math</h1>
+  <div id="outputHere"></div>
+
+  <script>
+    //declarations
+    const arr1 = ["elem1", "elem2", "elem3"];
+    const arr2 = [];
+    arr2[0] = 1;
+    arr2[1] = 2;
+    arr2[2] = 3;
+    const arr3 = new Array("1", "2", "3");
+
+    //converting to 1 string
+    console.log(arr1.toString() + " array typeof is " + typeof arr1); //an object type
+    //meaning u can have objects, functions and arrays inside an array
+    const arr4 = [];
+    arr4[0] = firstIndex();
+    arr4[1] = arr1; //array inside of an array
+    arr4[0]; //calls the function
+
+    function firstIndex() {
+      console.log("First Index");
+    };
+
+    //to access an array inside an array index
+    arr4[1].forEach(i => {
+      console.log(i);
+    });
+
+    //or
+    console.log(arr4[1][0], arr4[1][1], arr4[1][2]);
+
+    //arrays + html tags
+    let text1 = "<ul>";
+    for (let i = 0; i < arr2.length; i++) {
+      text1 += "<li>" + arr2[i] + "</li>";
+    }
+    text1 += "</ul>";
+    document.getElementById("outputHere").innerHTML = text1; //printing it to the page as elements
+
+    //u can also use
+    text1 += "<ul>";
+    arr2.forEach(func1);
+    text1 += "</ul>";
+
+    function func1(iterator) {
+      text1 += "<li>" + iterator + "</li>";
+    }
+    document.getElementById("outputHere").innerHTML = text1; //printing it to the page as elements
+    console.log(Array.isArray(arr1));
+    //array.pop removes last elem then return the removed element  
+    //array.push adds an elem then return the new arr length  
+
+    //sorting an array
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    const prices = [99.99, 50.75, 50, 100];
+    //the sorts returns a string
+    fruits.sort(); //alphabetically 
+    prices.sort(); //if the arr elems are numbers it will just reverse the order
+    //prices.reverse(); //same at the above if it has numbers
+    console.log(fruits + " " + prices);
+    fruits.reverse();
+    console.log(fruits.toString());
+
+    //using just sort in numbers produce incorrect results
+    //solution is to use a function that compare two index for smaller or bigger
+    const points = [5, 3, 2, 6, 1, 4, 7, 8];
+    points.sort(function (a, b) { return a - b }); //ascending
+    console.log(points.toString());
+    points.sort(function (a, b) { return b - a }); //ascending
+    console.log(points.toString()); //descending
+    //function explanation
+    /*the result returns only positive,zero,negative
+    if -, a is sorted before b
+    if +, b is sorted before a
+    if zero, no changes are done in both values
+    */
+
+    //with that function u can now find highest and lowest number value on their first and last index
+    //or by using
+    console.log(Math.max.apply(null, points));
+    console.log(Math.min.apply(null, points));
+
+    //sorting in random order
+    points.sort(function () { return 0.5 - Math.random() });
+    console.log(points.toString());
+
+    //array iterations
+    const numbers1 = [10, 21, 32, 43, 54, 65, 76, 87, 98];
+    numbers1.forEach(iterNum1Func);
+    //the function originally takes 3 params
+    //but here it only uses the value param
+    function iterNum1Func(value, index, array) {
+      console.log(value);
+    }
+
+    //map function
+    //returns a new array, perform function per index, 
+    //does not change orig array, does not perform any action if it has no value 
+    console.log("Using Map()");
+    const number2 = numbers1.map(iterNum2Func);
+    function iterNum2Func(value, index, array) {
+      console.log(value * 2);
+    }
+
+    //filter()
+    const filteredArr = numbers1.filter(filterArr);
+    function filterArr(value, index, array) {
+      return value > 97;
+    }
+    console.log(filteredArr.toString());
+
+    //array spread
+    const q1 = ["Jan", "Feb", "Mar"];
+    const q2 = ["Apr", "May", "Jun"];
+    const q3 = ["Jul", "Aug", "Sep"];
+    const q4 = ["Oct", "Nov", "May"];
+    const monthInAYear = [...q1, ...q2, ...q3, ...q4];
+    console.log(monthInAYear.toString());
+
+    //DATES
+    /*
+    new Date()
+    new Date(date string)
+    new Date(year,month)
+    new Date(year,month,day)
+    new Date(year,month,day,hours)
+    new Date(year,month,day,hours,minutes)
+    new Date(year,month,day,hours,minutes,seconds)
+    new Date(year,month,day,hours,minutes,seconds,ms)
+    new Date(milliseconds)
+    */
+    console.log(new Date());
+    console.log(new Date(2018, 11)); //NOTE js counts months to 0 - 11
+    console.log(new Date(2018, 11, 24, 10, 33, 30, 0)); //NOTE js counts months to 0 - 11
+    //in more readable format
+    console.log(new Date().toDateString());
+    console.log(new Date().toUTCString());//utc stand
+    console.log(new Date().toISOString());//iso stand
+
+    //get and set methods
+    let d = new Date();
+
+    //to return the month as name
+    const months = [
+      "January", "February", "March",
+      "April", "May", "June",
+      "July", "August", "September",
+      "October", "November", "December"];
+    console.log(d.getDate() + " " + d.getFullYear() + " " + months[d.getMonth()]);
+
+    //set methods are the same
+    let dateSet = new Date();
+    dateSet.setDate(30);
+    dateSet.setFullYear(2022);
+    dateSet.setMonth(5);
+    console.log(dateSet.getDate() + " " + dateSet.getFullYear() + " " + months[dateSet.getMonth()]);
+
+    //Math funcs
+    console.log(Math.round(4.6)); //5 returns the nearest int
+    console.log(Math.round(4.5)); //5 returns the nearest int
+    console.log(Math.round(4.4)); //4 returns the nearest int
+    console.log(Math.ceil(4.2)); //5 rounded up to its nearest int
+    console.log(Math.floor(4.9)); //4 rounded down to its nearest int
+    console.log(Math.trunc(3.14)); //only returns the int not the decimals
+    console.log(Math.sign(0)); //ret 1, -1, or 0
+    console.log(Math.sqrt(100)); //square root
+    console.log(Math.abs(-100)); //absolute positive val
+
+    //random nums
+    console.log(Math.random()); //returns a num lower than 1
+    console.log(Math.floor(Math.random() * 10)); //returns a num lower than 10
+    //best number randomizer
+    let max = 100;
+    let min = 1;
+    console.log(Math.floor(Math.random() * (max - min) ) + min);
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class part 1</title>
+</head>
+<body>
+  <h1>Classes</h1>
+  <h2>Intro</h2>
+  <h2>Inheritance</h2>
+  <h2>Static</h2>
+  
+  <script>
+    //js classes - templates for objects
+    class Car {
+      constructor(name, year) {
+        this.name = name;
+        this.year = year;
+      }
+
+      getCarName() {
+        return this.name;
+      }
+
+      getCarYear() {
+        return this.year;
+      }
+
+    }
+
+    //using it to create objects
+    const car1 = new Car("Ford",2014);
+    console.log(car1.getCarName());
+    
+    const car2 = new Car("Audi",2019);
+    console.log(car2.getCarYear());
+
+    
+    //inheritance - it inherits all the methods from another class
+    //using extends keyword
+    class Person {
+      constructor(name,age) {
+        this.name = name;
+        this.age = age;
+      }
+      getPersonName() {
+        return this.name;
+      }
+
+      getPersonAge() {
+        return this.age;
+      }
+    }
+
+    class Juan extends Person {
+      constructor(eyeColor,name,age) {
+        super(name,age);//this refers to all the methods in the parent class 
+        //to access it u need to call super() on constructor
+        //super(); //u can just call super to access it all but cannot put args on it 
+        this.eyeColor = eyeColor
+      }
+      getEyeColor() {
+        return this.eyeColor;
+      }
+    }
+
+    const jiwo = new Juan("brown","jiwo",21);
+
+    console.log(jiwo.getEyeColor());
+    console.log(jiwo.getPersonName());
+    console.log(jiwo.getPersonAge());
+
+    //using getter and setter
+    class Student {
+      get sname() {
+        return this.name;
+      }
+      
+      set sname(name) {
+        this.name = name;
+      }
+    }
+
+    const student1 = new Student();
+    student1.sname = "Juan Dela Cruz";
+    console.log(student1.sname);
+
+    //NOTE!!! classes cannot be hoisted
+
+    //static classes methods
+    class StaticExample {
+      constructor(arg1,arg2) {
+        this.field1 = arg1;
+        this.field2 = arg2;
+      }
+
+      static getRandomNum() {
+        return Math.random();
+      }
+    }
+    console.log(StaticExample.getRandomNum()*10);
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser Object Model Part 1</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>BOM</h1>
+  <h2>WINDOW</h2>
+  <h2>SCREEN</h2>
+  <h2>LOCATION</h2>
+  <h2>NAVIGATOR</h2>
+  <h2>POPUPS</h2>
+  <h2>COOKIES</h2>
+
+  <button id="btnOpenWindow">Open Window</button>
+  <button id="btnCloseWindow">Close Window</button>
+  <button id="btnMoveTo">Move Window</button>
+  <button id="btnResizeTo">Resize Window</button>
+
+  <button id="btnAssign">LOAD NEW DOCUMENT</button>
+  <button id="btnBack">BACK TO LAST PAGE</button>
+  <button id="btnForward">FORWARD TO NEW PAGE</button>
+  <button id="btnAlert">SHOW ALERT BOX</button>
+  <button id="btnConfirm">SHOW CONFIRM BOX</button>
+  <button id="btnPrompt">SHOW PROMPT BOX</button>
+
+  <button id="btnClearInterval">CLEAR INTERVAL</button>
+  <button id="btnClearTimeout">CLEAR TIMEOUT</button>
+
+
+  <script>
+    //windows object - represents browser's window
+    const p1 = document.createElement("p");
+    p1.innerHTML = "window w : " + window.innerWidth + " window h :  " + window.innerHeight +
+      "<br>screen w : " + screen.width + " screen h " + screen.height//the same
+      + "<br>screen avail w : " + screen.availWidth + " screen avail h : " + screen.availHeight
+    document.body.appendChild(p1);
+
+    //holder
+    const domObj = {
+      domName: ""
+    };
+
+    const open = document.querySelector("#btnOpenWindow");
+    open.addEventListener("click", function () {
+      const dom1 = window.open("dom1.html");
+      domObj.domName = dom1;
+    });
+
+    const close = document.querySelector("#btnCloseWindow");
+    close.addEventListener("click", function () {
+      domObj.domName.close();
+    });
+
+    const move = document.querySelector("#btnMoveTo");
+    move.addEventListener("click", function () {
+      window.moveTo(100, 100);//not working or !allowed???
+    });
+
+    const resize = document.querySelector("#btnResizeTo");
+    resize.addEventListener("click", function () {
+      domObj.domName.resizeTo(500, 500);//not working or !allowed???
+    });
+
+    //window location - windows properties can be written without "window"
+    document.write(window.location.href + "<br>");//url
+    //or
+    document.write(location.href + "<br>");
+    document.write(window.location.hostname + "<br>");//host name
+    document.write(window.location.pathname + "<br>");//path name
+    document.write(window.location.protocol + "<br>");//protocol 
+    document.write(window.location.port + "<br>");//port
+
+    document.querySelector("#btnAssign").addEventListener("click", function () {
+      window.location.assign("https://youtube.com");//loads new document
+    });
+
+    //window history - moving back and forth in visited pages
+    const back = document.querySelector("#btnBack");
+    back.addEventListener("click", function () {
+      history.back();
+    });
+
+    const forward = document.querySelector("#btnForward");
+    forward.addEventListener("click", function () {
+      history.forward();
+    });
+
+    //navigator - contain info about visitor's browser
+    document.write("is cookie enabled : " + navigator.cookieEnabled + "<br>");
+    document.write("User OS : " + navigator.platform + "<br>");//USER OS
+    document.write("Language : " + navigator.language + "<br>");//language
+    document.write("is browser onLine : " + navigator.onLine + "<br>");//is online
+    document.write("is java enabled : " + navigator.javaEnabled() + "<br>");
+
+    //popups
+    document.querySelector("#btnAlert").addEventListener("click", function () {
+      alert("THIS IS AN ALERT BOX");
+    });
+    document.querySelector("#btnConfirm").addEventListener("click", function () {
+      const confirmed = confirm("THIS IS A CONFIRM BOX");
+      if (confirmed) alert("U CLICKED OK");
+      else alert("U CLICKED CANCEL");
+    });
+    document.querySelector("#btnPrompt").addEventListener("click", function () {
+      const promptEntered = prompt("UR NAME?", "");
+      if (promptEntered) alert("Hi " + promptEntered + "!");
+      //if user entered and clicked ok the prompt returns the inputted text
+    });
+
+    //timing - setTimeout, setInterval
+    const i = setInterval(function () {
+      const p = document.createElement("p");
+      p.id = "pInterval";
+      p.innerHTML = "ADDED AND REMOVED USING SET INTERVAL";
+
+      if (document.querySelector("#pInterval") != null) document.querySelector("#pInterval").parentNode.removeChild(document.querySelector("#pInterval"));
+      else document.body.appendChild(p);
+    }, 1000);//the time is the interval of repetition
+
+    /*const t = setTimeout(function(){
+      alert("ALERT USING SET TIMEOUT");
+    }, 3000);//the time is the delay before executing
+    */
+
+    document.querySelector("#btnClearInterval").addEventListener("click", function () {
+      clearInterval(i);
+    });
+
+    document.querySelector("#btnClearTimeout").addEventListener("click", function () {
+      clearTimeout(t);
+    });
+
+    //cookies - data stored in small txt files on ur pc
+    //saved in name-value pairs like name:jiwo
+    //setting cookie
+    document.cookie = "username:jiwo, expires:Sat, 07 Oct 2023 12:00:00 UTC path=/"
+    console.log(document.cookie);
+
+  </script>
+</body>
+
+</html>

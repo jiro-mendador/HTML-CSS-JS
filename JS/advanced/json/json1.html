@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Part 1</title>
+  <style></style>
+</head>
+
+<body>
+
+  <h1>JSON</h1>
+  <h2>INTRO & SYNTAX, DATA TYPES</h2>
+  <h2>NOTE JSON TUTORIALS MOVE IN HTDOCS IN ORDER FOR PHP TO WORK</h2>
+
+  <script>
+    //JSON - stands for JavaScript Object Notation, it is a text format 
+    //for storing and transporting data
+    //JSON is self-describing and easy to understand
+    //it is a plain text written in JavaScript Object Notation, it is a language independent
+
+    //JSON SYNTAX RULES
+    //data is name/value pairs
+    //data is separated by commas
+    //curly braces hold objects
+    //square brackets hold arrays
+
+    //COMPARISON WITH JS OBJECTS
+    const person = {
+      name: "John",
+      age: 31,
+      city: "New York"
+    };
+    //u can access it like
+    person.name = "Doe";
+    person["name"] = "John";
+
+    //COMPARISON WITH JS ARRAYS
+    //arrays can be written with JSON
+
+    //JSON EXAMPLE is self describing or human readable, easier to use with AJAX
+    // {
+    //   "employees" : [
+    //     { "firstName": "John1", "lastName": "Doe1" },
+    //     { "firstName": "John2", "lastName": "Doe2" },
+    //     { "firstName": "John3", "lastName": "Doe3" }
+    //   ]
+    // };
+
+    //JSON DATA TYPES, string, number, object (JSON object), array, boolean, null
+    //JSON values cannot be a function, date, undefined
+    
+    // strings 
+    // {"name" : "John"}
+    
+    // numbers 
+    // {"age" : 31}
+
+    //objects
+    // {employees : { "name" : "John", "age" : 30 }}
+
+    //arrays
+    // {employees : ["John"], ["Ana"], ["Trixie"] }
+
+    // boolean
+    // {"sale" : true}
+
+    // null
+    // {"surname_suffix" : null}
+
+    
+
+
+
+
+  </script>
+</body>
+
+</html>

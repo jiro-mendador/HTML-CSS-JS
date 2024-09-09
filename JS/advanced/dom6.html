@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Part 6</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <h1>DOM</h1>
+  <h2>COLLECTIONS</h2>
+  <h2>NODE LISTS</h2>
+
+  <p>PARAG 1</p>
+  <p>PARAG 2</p>
+  <p>PARAG 3</p>
+
+
+  <script>
+    //HTMLCollection is not an array it is a list
+    //getElementsByTagName() returns an HTMLCollection
+    //accessing list is the same with an array thru index
+    const parags = document.getElementsByTagName("p");
+    console.log(parags[0].firstChild.nodeValue);
+
+    //NodeList is like an HTMLCollection object
+    console.log(document.body.childNodes)
+    console.log(document.querySelectorAll("p").length);
+    
+    //HTMLCollection is a collection of documents elements
+    //NodeList is a collection of document nodes
+    //they're not an array, u cannot use push(), pop(), join()
+
+  </script>
+</body>
+</html>

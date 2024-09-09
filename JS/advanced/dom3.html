@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM part 3</title>
+  <style>
+    form {
+      margin: 10px;
+    }
+
+    .animationDivContainer {
+      width: 300px;
+      height: 300px;
+      padding: 10px;
+      background-color: beige;
+      border-radius: 15px;
+      margin: 1em;
+    }
+
+    #animationDiv {
+      position: relative;
+      width: 150px;
+      height: 50px;
+      background-color: tomato;
+      color: white;
+      padding: 10px;
+      border-radius: 15px;
+    }
+
+    @keyframes goUp {
+      0% {
+        top: 230px;
+      }
+
+      100% {
+        top: 0px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>DOM</h1>
+  <h2>FORMS</h2>
+  <h2>STYLES/CSS</h2>
+  <h2>ANIMATIONS</h2>
+
+  <form id="form1">
+    <label for="name">NAME</label>
+    <input type="text" id="name">
+    <label for="age">AGE</label>
+    <input type="text" id="age">
+    <input type="submit" value="SUBMIT">
+  </form>
+
+  <p>Enter a number from 1 - 10</p>
+  <input type="text" id="number"><br>
+  <p id="output"></p>
+  <button id="btnCheckInput">CHECK INPUT</button>
+
+  <form id="form3">
+    <label>First Name</label>
+    <input type="text" required pattern="[a-z/A-Z]"> <!--automatic validation using "required" attribute -->
+    <input type="submit" value="Submit">
+  </form>
+
+  <button id="btnChangeBgColor">CLICK TO CHANGE BG</button>
+
+  <div class="animationDivContainer">
+    <div id="animationDiv">
+      ANIMATIONS WILL HAPPEN HERE
+    </div>
+  </div>
+
+  <script>
+    //form validations can be done by javascript
+    let submit = document.querySelector("input[type=\"submit\"]");
+    const form1 = document.forms["form1"]; //getting the form
+    form1.addEventListener("submit", validateForm);//adding event when submitted
+    //the function that validates
+    function validateForm() {
+      for (const i of form1) {
+        if (i.value === "") {
+          alert("Cannot submit with an empty field");
+          return false;
+        }
+      }
+    }
+
+    //checking if input is a number
+    let input = document.getElementById("number");
+    let btnCheck = document.getElementById("btnCheckInput");
+
+    btnCheck.addEventListener("click", function () {
+      if (isNaN(input.value) || input.value > 10 || input.value < 1) {
+        document.getElementById("output").innerHTML = "INVALID INPUT";
+      } else {
+        document.getElementById("output").innerHTML = "VALID INPUT";
+      }
+    });
+
+    //changing styles using css
+    const btn1 = document.querySelector("#btnChangeBgColor");
+    btn1.addEventListener("click", function () {
+      btn1.style.backgroundColor = btn1.style.backgroundColor === "green" ? "red" : "green";
+      btn1.style.color = "white";
+    });
+
+    //making animations using javascript
+    //all animations should be relative to the parent container
+    function move() {
+      let animationDiv = document.querySelector("#animationDiv");
+      let topPosition = 0;
+      let interval = setInterval(function () {
+        if (topPosition == 230) {
+          clearInterval(interval);
+          animationDiv.style.animation = "goUp 1.5s ease-in-out 0s normal forwards";//adding animatio thru styles
+        } else {
+          topPosition++;
+          animationDiv.style.top = topPosition + "px";
+        }
+      }, 5);
+    }
+    move();
+
+
+  </script>
+</body>
+
+</html>

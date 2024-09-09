@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantics part 1</title>
+</head>
+
+<body>
+    <!-- 
+        non-semantic elements div/span - tells nothing about its content
+        semantic elements form/table/article - clearly define its content
+    -->
+
+    <!-- 
+        section element - defines a section in a document, 
+        typically with a heading 
+        (Chapters, Introduction, News Items, Contact info)
+    -->
+    <p>Sections</p>
+    <section>
+        <h1>WWF</h1>
+        <p>The World Wide Fund for Nature (WWF) is an international organization working on issues regarding the
+            conservation, research and restoration of the environment, formerly named the World Wildlife Fund. WWF was
+            founded in 1961.
+        </p>
+    </section>
+
+    <section>
+        <h1>WWF's Panda symbol</h1>
+        <p>The Panda has become the symbol of WWF. The well-known panda logo of WWF originated from a panda named Chi
+            Chi that was transferred from the Beijing Zoo to the London Zoo in the same year of the establishment of
+            WWF.</p>
+    </section>
+    <hr>
+    <!--
+         article element - specifies independent, self-contained content,
+         should make sense on its own, can be distributed independently
+         througout the web site (Forum posts, Blog posts, User comments,
+         Product cards, newspaper articles)
+    -->
+    <p>Articles</p>
+    <article>
+        <h2>Google Chrome</h2>
+        <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web
+            browser today!</p>
+    </article>
+    <article>
+        <h2>Mozilla Firefox</h2>
+        <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most popular
+            web browser since January, 2018.</p>
+    </article>
+    <article>
+        <h2>Microsoft Edge</h2>
+        <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. Microsoft Edge replaced Internet
+            Explorer.</p>
+    </article>
+    <!--
+        NOTE: articles and section can be nested (vice versa)
+    -->
+    <!-- 
+        The <header> element represents a container 
+        for introductory content or a set of navigational links.
+        typically contains heading elements (h1-6) logo, icon, 
+        authorship info
+    -->
+    <hr>
+    <p>This article has a header</p>
+    <article>
+        <header>
+            <h1>What Does WWF Do?</h1>
+            <p>WWF's mission:</p>
+        </header>
+        <p>WWF's mission is to stop the degradation of our planet's natural environment,
+            and build a future in which humans live in harmony with nature.</p>
+    </article>
+    <!--
+         The <footer> element defines a footer for a document or section.
+        (copyright info, contact, sitemap, back to top links, related docs)
+      -->
+    <hr>
+    <p>This is a footer</p>
+    <footer>
+        <p>Author: Hege Refsnes</p>
+        <p><a href="mailto:hege@example.com">hege@example.com</a></p>
+    </footer>
+    <!--
+        The <nav> element defines a set of navigation links.
+      -->
+    <nav style="border: 1px solid black;">
+        <a href="#html">HTML</a>
+        <a href="#css">CSS</a>
+        <a href="#js">JavaScript</a>
+        <a href="#jq">jQuery</a>
+    </nav>
+    <!--
+        The <aside> element defines some content aside 
+            from the content it is placed in (like a sidebar).
+        The <aside> content should be indirectly related to the 
+            surrounding content.
+      -->
+    <hr>
+    <p>My family and I visited The Epcot center this summer. The weather was nice, and Epcot was amazing! I had a great
+        summer together with my family!</p>
+    <p>This is an aside element</p>
+    <aside>
+        <h4>Epcot Center</h4>
+        <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions,
+            award-winning fireworks and seasonal special events.</p>
+    </aside>
+    <hr>
+    <!--
+        <figure> tag specifies self-contained content, 
+            like illustrations, diagrams, photos, code listings, etc.
+        The <figcaption> tag defines a caption for a <figure> element. 
+            The <figcaption> element can be placed as the first or 
+                as the last child of a <figure> element.
+    -->
+    <p>This is a figure</p>
+    <figure>
+        <img src="/HTML/intro/img1.png" alt="Farlight capture" 
+        width="150" height="150">
+        <figcaption>Fig1. - Farlight capture</figcaption>
+    </figure>
+</body>
+
+</html>

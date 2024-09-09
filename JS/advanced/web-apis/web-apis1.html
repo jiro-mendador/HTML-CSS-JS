@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEB API PART 1</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>WEB API</h1>
+  <h2>WEB FORMS API</h2>
+  <h2>WEB HISTORY API</h2>
+  <h2>WEB STORAGE API</h2>
+  <h2>WEB WORKERS API</h2>
+  <h2>WEB FETCH API</h2>
+
+  <p id="geolocP1" onclick="getLocation()">CLICK TO GET LOCATION</p>
+  <input id="input1" type="number" min="100" max="200" required>
+  <button onclick="checkInput()">CLICK TO CHECK INPUT</button>
+
+  <button id="btnBack">GO BACK</button>
+  <button id="btnForward">GO FORWARD</button>
+  <button id="btnGo">GO BACK 2 PAGE</button>
+
+  <div>
+    <p id="webWorkerP1">Count Numbers : </p>
+    <button id="start" onclick="startWorker()">START WORKER</button>
+    <button id="stop" onclick="stopWorker()">STOP WORKER</button>
+  </div>
+
+  <p id="fetchP1">FETCH DISPLAY HERE</p>
+  <button id="fetchBtn" onclick="fetchFunction()">FETCH1</button>
+  <button id="fetchBtn" onclick="fetchFunction2()">FETCH2</button>
+  <button id="fetchBtn" onclick="readableFetchFunction()">READABLE FETCH</button>
+
+
+  <img alt="google map" id="map" width="200" height="200">
+  <button id="getGeoLocBtn" onclick="getGeoLocation()">GET GEO LOCATION</button>
+
+
+  <script>
+    //web api can : extend functionality of browser, server, 
+    //simplify complex function, provide easy syntax to complex code
+    //API - Application Programming Interface
+
+    const p1 = document.querySelector("#geolocP1");
+
+    //ex 1 getting users loc
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        p1.innerHTML = "GEOLOCATION IS NOT SUPPORTED BY THIS BROWSER";
+      }
+    }
+
+    function showPosition(position) {
+      p1.innerHTML = "Latitude : " + position.coords.latitude + "<br>" +
+        "Longitude : " + position.coords.longitude;
+    }
+
+    //ex 2 checking validity of an input field
+    //this automatically checks if input constraints thru properties are met
+    function checkInput() {
+      const input = document.querySelector("#input1");
+      if (!input.checkValidity()) {
+        alert(input.validationMessage);
+      }
+    }
+
+    //ex 3 history back, forwards, go
+    //it's like clicking the arrow next or prev in browser
+    const back = document.querySelector("#btnBack");
+    back.addEventListener("click", function () {
+      window.history.back();
+    })
+
+    const forward = document.querySelector("#btnForward");
+    forward.addEventListener("click", function () {
+      window.history.forward();
+    })
+
+    const go = document.querySelector("#btnGo");
+    go.addEventListener("click", function () {
+      //the go can go back or forward with specified num of pages
+      window.history.go(-2);
+    })
+
+    //ex 4 using localStorage API
+    //it allows us to store, read, modify and deleyte data items
+    //data is stored with no expiration date & will not be deleted
+    //when the browser is closed
+
+    //setting an item using localStorage Object
+    localStorage.setItem("name", "John Doe");
+    //getting the item
+    console.log(localStorage.getItem("name"));
+
+    //sessionStorage obj - similar to localStorage
+    //but the data is stored in 1 session only
+    //data is deleted when tab is closed
+
+    //setting item using sessiosStorage obj
+    sessionStorage.setItem("name", "John Doe");
+    console.log(sessionStorage.getItem("name"));
+
+    //to remove the items
+    localStorage.removeItem("name");
+    sessionStorage.removeItem("name");
+    //or deleting all items
+    //localStorage.clear();
+    //sessionStorage.clear();
+
+    //checking if items are deleted
+    console.log(localStorage.getItem("name"));
+    console.log(sessionStorage.getItem("name"));
+
+    //WEB WORKERS - a js running in the bg without affecting page performance
+    let worker;
+    function startWorker() {
+      if (typeof (worker) === "undefined") {
+        worker = new Worker("demo_workers.js");
+      }
+      worker.onmessage = function (event) {
+        document.querySelector("#webWorkerP1").innerHTML = event.data;
+      }
+    }
+
+    function stopWorker() {
+      worker.terminate();
+      worker = undefined;
+    }
+
+    //WEB FETCH API - allows browser to make HTTP request to web servers
+    //example 1
+    const file = "fetch_info.txt";
+
+    function fetchFunction() {
+      fetch(file)
+        .then(x => x.text())
+        .then(y => myDisplay(y));
+    }
+    //or
+    function fetchFunction2() {
+      getTextFile("fetch_info.txt");
+      async function getTextFile(textFile) {
+        let x = await fetch(textFile);
+        let y = await x.text();
+        myDisplay(y);
+      }
+    }
+
+    //since fetch is based on async and await, u can make it more readable 
+    function readableFetchFunction() {
+      getText("fetch_info.txt");
+      async function getText(file) {
+        let object1 = await fetch(file);
+        let textOutput = await object1.text();
+        myDisplay(textOutput);
+      }
+    }
+
+    //displaying GEOLOCATION in a map
+    function getGeoLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(outputPosition);
+      } else {
+        p1.innerHTML = "GEOLOCATION IS NOT SUPPORTED BY THIS BROWSER";
+      }
+    }
+
+    function outputPosition(position) {
+      let latitude = position.coords.latitude + "," +
+        position.coords.longitude;
+      let img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
+        + latitude + "&zoom=14&size=400x300&sensor=false&key=YOUR_KEY";//needs to generate an api key//not working yet
+      document.querySelector("#map").src = img_url;
+    }
+
+
+  </script>
+
+</body>
+
+</html>

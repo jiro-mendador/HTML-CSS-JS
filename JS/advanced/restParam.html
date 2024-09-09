@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rest Parameter</title>
+</head>
+<body>
+  <h1>Rest Parameter (...)</h1>
+  <script>
+    //rest parameter (...) allows a func to have indefinite num of params
+    
+    function sumNumbers(...args) {
+      let sum = 0;
+      args.forEach(element => {
+          sum += element;
+      });
+      return sum;
+    }
+    console.log(sumNumbers(1,1,1,1,1));
+    document.write(sumNumbers(1,2,3,4,5));
+
+    
+
+  </script>
+</body>
+</html>

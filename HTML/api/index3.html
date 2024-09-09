@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API part 3</title>
+</head>
+
+<body>
+  <!--web worker api 
+    web worker = a js that runs in background, independently of other scripts
+    without affecting the page's performance
+    before creating a web worker always check for support
+  -->
+
+  <p>Count Numbers: <output id="result"></output></p>
+  <button onclick="startWorker()">Start Worker</button>
+  <button onclick="stopWorker()">Stop Worker</button>
+
+  <!--Server-Sent Events - One Way Messaging
+    SSE = when a web page auto gets updates from a server
+  -->
+  <script>
+    //example of web worker file
+    /*var i = 0;
+    function timedCount() {
+      i = i + 1;
+      postMessage(i);
+      setTimeout("timedCount()", 500);
+    }
+    timedCount();*/
+
+    var w;
+
+    function startWorker() {
+      if (typeof (Worker) !== "undefined") {
+        //some code if supported
+        if (typeof (w) == "undefined") {
+          w = new Worker("demo_workers.js");
+        }
+        w.onmessage = function (event) {
+          document.getElementById("result").innerHTML = event.data;
+        };
+      } else {
+        document.getElementById("result").innerHTML =
+          "Sorry, no web worker support";
+      }
+    }
+
+    function stopWorker() {
+      w.terminate(); //to stop it from running forever
+      w = undefined; // to reuse the web worker
+    }
+
+    //Receive Server-Sent Event Notifications
+    var source = new EventSource("demo_sse_php");
+    sourcee.onmessage = function (event) {
+      document.getElementById("result").innerHTML += event.data + "<br>";
+    }
+
+    //Check Server-Sent Events Support
+    if (typeof (EventSource) !== "undefined") {
+      //supported
+    } else {
+      //sorry no server sent events support
+    }
+
+    //sample php code
+    /*
+      header('Content-Type: text/event-stream');
+      header('Cache-Control: no-cache');
+
+      $time = date('r');
+      echo "data: The server time is: {$time}\n\n";
+      flush(); 
+    */
+
+
+  </script>
+</body>
+
+</html>

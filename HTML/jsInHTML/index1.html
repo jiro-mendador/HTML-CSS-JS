@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS IN HTML part 1</title>
+
+    <!-- 
+        The <meta> element is typically used to specify 
+        the character set, page description, keywords, 
+        author of the document, and viewport settings. 
+        
+        The metadata will not be displayed on the page, 
+        but is used by browsers (how to display content or reload page), 
+        by search engines (keywords), and other web services.
+    -->
+
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    
+</head>
+<style>
+    button {
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <h1>JavaScript Example</h1>
+    <button onclick="show()">Click To Show Text</button>
+    <p id="textHolder"></p>
+    <script>
+        function show() {
+            var p = document.getElementById('textHolder');
+            p.innerHTML = "Hello JavaScript!";
+            p.style.color = "red";
+        } 
+    </script>
+    <!-- noscript tag is an alternate content to be displayed 
+        to users that have disabled scripts in their browser
+         or have a browser that doesn't support scripts:-->
+    <noscript>Sorry, your browser does not support JavaScript</noscript>
+</body>
+
+</html>

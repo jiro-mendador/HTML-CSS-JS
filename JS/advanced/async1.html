@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async part 1</title>
+</head>
+
+<body>
+  <h1>Async</h1>
+  <h2>Callbacks</h2>
+  <h2>Asynchronous</h2>
+  <h2>Promises</h2>
+
+  <p>HTML FILE IS CALLED AND DISPLAYED BELOW</p>
+  <div id="display"></div>
+  <p>ANOTHER HTML FILE IS CALLED AND DISPLAYED BELOW</p>
+  <div id="display2"></div>
+    
+    <script>
+      //callbacks - a func that's passed as arg in another func
+      //allows a func to call another func
+      //a callback func can run after another func's done
+      function first() {
+        console.log("First");
+      }
+
+      function seconf() {
+        console.log("Second");
+      }
+
+      //example1 of callback func
+      function sum(n1, n2, callbackFunc) {
+        let sum = n1 + n2;
+        callbackFunc(sum);
+      }
+
+      function printSum(sum) {
+        console.log(sum);
+      }
+
+      sum(10, 5, printSum);
+
+      //example2 of callback func
+      function removePositiveNum(numbers, callbackFunc) {
+        const arr = [];
+        for (const i of numbers) {
+          if (callbackFunc(i)) {
+            arr.push(i);
+          }
+        }
+        return arr;
+      }
+
+      const numbers = [4, 1, 20, -7, 5, 9, -6];
+      console.log(removePositiveNum(numbers, (num) => (num <= 0)).toString());
+
+      //great example of callback func is setTimeout();
+      //bc callbacks are executed when another finishes
+      function execAfter3secs() {
+        console.log("This func exec after 3 secs");
+      }
+      let timesExec = 1;
+      function execEvery3secs() {
+        console.log("This func exec every 3 secs\ncounter : " + timesExec);
+        timesExec++;
+      }
+
+      setTimeout(execAfter3secs, 3000);//this delays the func for 3 secs before exec
+      setInterval(execEvery3secs, 3000);//this one execs every after 3 secs
+
+      //Promises
+      /*
+      producing code - code that takes some time
+      consuming code - code the must wait for result
+      PROMISES - a js obj that links producing and consuming
+      2 props of promise - state and result
+      
+      when promise obj... 
+      is pending - result is undefined,
+      is fulfiiled - result is a value,
+      is rejected - result is an error object,
+      */
+
+      //example
+      function logOutput(output) {
+        console.log(output);
+      }
+
+      let promise1 = new Promise(function (ifResolve, ifReject) {
+        let value = -1;
+        /*
+        producing code that takes some time
+        */
+        if (value == 0) {
+          ifResolve("OK");
+        } else {
+          ifReject("ERROR");
+        }
+      });
+
+      promise1.then(
+        function (value) {
+          logOutput(value);
+        },
+        function (error) {
+          logOutput(error);
+        }
+      );
+
+      //a good example of using promise
+      let promise2 = new Promise(function (resolved, rejected) {
+        setTimeout(function () {
+          resolved("Hello Promise");
+        }, 4000);
+      });
+
+      promise2.then(
+        function (value) {
+          console.log(value);
+        },
+        function (error) {
+          console.log(error);
+        }
+      );
+
+
+      //own input/understanding
+      //in declaration : promises has 2 callbacks, one if resolved and one if rejected
+      //it is indicated in parameters
+      //then those 2 callback can have arguments
+      //in calling the promise.then can now have 2 functions
+      //1 each for success and error
+
+      //waiting for a file
+
+      function display(value) {
+        document.getElementById("display").innerHTML = value;
+      }
+
+      //using callback
+      function getFile1(callbackFunc) {
+        let req = new XMLHttpRequest();
+        req.open("GET", "class1.html");
+        req.onload = function () {
+          if (req.status == 200) {
+            callbackFunc(req.responseText);
+          } else {
+            callbackFunc("ERROR : " + req.status);
+          }
+        }
+        req.send();
+      }
+      getFile1(display);
+
+      //getting file using promise
+      let promiseFile = new Promise(function (resolved, rejected) {
+        let req = new XMLHttpRequest();
+        req.open("GET", "restParam.html");
+        req.onload = function () {
+          if (req.status === 200) {
+            resolved(req.responseText);
+          } else {
+            rejected("File not found");
+          }
+        };
+        req.send();
+      });
+
+      setTimeout(function () {
+        promiseFile.then(
+          function (value) {
+            display(value);
+          },
+          function (error) {
+            display(error);
+          },
+        );
+      }, 4000);
+
+
+      function consoleOutput(value) {
+        console.log(value);
+      }
+      //js async func - makes promises easier to write
+      async function asyncFunc() {
+        return "This promise comes from async function";
+      }
+
+      asyncFunc().then(
+        function (value) {
+          consoleOutput(value);
+        },
+        function (error) {
+          consoleOutput(error);
+        }
+      );
+
+      //await keyword - can only be used inside an async func
+      //used to pause the func exec and wait for resolved promise to continue
+      async function disp() {
+        let promise = new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            resolve("HELLO RESOLVE");
+          }, 3000);
+        });
+        consoleOutput(await promise);
+      }
+      disp();
+
+      setTimeout(function () {
+        async function displayHTML() {
+          let promise = new Promise(function (resolve, reject) {
+            let req = new XMLHttpRequest();
+            req.open("GET", "objects2.html");
+            req.onload = function () {
+              if (req.status == 200) {
+                resolve(req.responseText);
+              } else {
+                reject("ERROR FILE NOT FOUND");
+              }
+            };
+            req.send();
+          });
+          document.getElementById("display2").innerHTML = await promise;
+        };
+      displayHTML();
+      }, 5000);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

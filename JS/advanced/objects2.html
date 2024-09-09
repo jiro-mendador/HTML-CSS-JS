@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects part 2</title>
+</head>
+
+<body>
+  <h1>Objects part 2</h1>
+  <h2>Object Constructors, Types, Iterables, Sets</h2>
+  <h2>Object Constructors</h2>
+  <h2>Object Types</h2>
+  <h2>Object Iterables</h2>
+  <h2>Object Sets</h2>
+  <h2>Object Maps</h2>
+  <script>
+
+    //good practice name constructors with UPPER-CASE letter
+    function Person(first, last, age, eye) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eye = eye;
+    }
+
+    //object types (blueprints) (classes)
+    //for creating many objects of the same type
+    const myFather = new Person("John", "Doe", 60, "black");
+    const myMother = new Person("Sally", "Rally", 55, "brown");
+
+    //adding property to the object of type Person
+    myFather.nationality = "Filipino";//only adds to the myFather object
+    //adding func to obj
+    myFather.fullName = function () {
+      return this.firstName + " " + this.lastName;
+    };
+
+    //Propotype - is like the parent classes in java
+    //Object.prototype is the parent of Date, Array or the Person above
+    //Person.prototype is the parent of Person objects
+
+    //u can call .prototype to add new methods to objects constructors
+    Person.prototype.occupation = "none";
+    Person.prototype.fullName = () => {
+      return this.firstName + " " + this.lastName;
+    };
+
+    myFather.occupation = "Market Inspector";
+    console.log(myFather.fullName() + " : " + myFather.occupation);
+
+    //additional use ??= to set a value if a variable's val is undefined/null
+    let x = undefined;
+    x ??= "x is null/undefined";
+    console.log(x);
+
+    //Iterables - obj that can be iterated using for..of
+    //string ex
+    let str = ""
+    for (const x of "Iterate This String Using For of") {
+      str += x;
+    }
+    console.log(str);
+    //array ex
+    for (const i of [1, 2, 3, 4, 5]) {
+      console.log(i);
+    }
+
+    //Set = collection of UNIQUE values
+    const letters1 = new Set(['a', 'b', 'c']);
+    //or
+    const letters2 = new Set();
+    letters2.add('d');
+    letters2.add('e');
+    letters2.add('f');
+    //only the first will be saved if u add same/equal elements
+    letters2.add('g');
+    letters2.add('g');
+    letters2.add('g');
+
+
+    //accessing
+    //for of
+    for (const i of letters1.values()) {
+      console.log(i);
+    }
+    //foreach
+    letters2.forEach(element => {
+      console.log(element);
+    });
+    //NOTE : a set has NO KEYS! unlike Maps
+    //checking types - typef instanceof
+
+    //Maps - holds key/value pairs, keys can be anytype
+    //declaring
+    const vegetables = new Map([
+      ["carrot", 100],
+      ["onion", 150],
+      ["garlic", 175],
+    ])
+    //or
+    vegetables.set("cabbage", 200);
+    //set method can be used to change existing value
+    vegetables.set("carrot", 125);
+    //getting value
+    console.log(vegetables.get("carrot"))
+    //size of the map
+    console.log(vegetables.size);
+    //deleting 1 element in map
+    vegetables.delete("onion");
+    //deleting all elements in map
+    //vegetables.clear();
+    //checks if val exists inside map
+    console.log(vegetables.has("onion"));
+
+    //accessing all
+    let vegies = "";
+    vegetables.forEach((value, key) => { //bc maps have keys/values
+      vegies += key + " : " + value + "\n";
+    });
+    console.log(vegies);
+
+    //important feature of map
+    //can add object as key
+    const apples = {
+      fruitName: "APPLES",
+    };
+    const oranges = {
+      fruitName: "ORANGES",
+    };
+    const bananas = {
+      fruitName: "BANANAS",
+    };
+
+    const fruits = new Map();
+    fruits.set(apples, 100);
+    fruits.set(oranges, 200);
+    fruits.set(bananas, 300);
+
+    //to access the object value in map
+    console.log(fruits.get(apples));
+
+    //to access the object property value
+    for (const [x, y] of fruits) {
+      console.log(x, x["fruitName"], y);
+    }
+
+    //adding properties on objects 
+    //NOTE not the same with Object Constructors 
+    //or the Prototype Objects
+    Object.defineProperty(apples, "location", { value: "Manila" });
+
+    //getting property names of an object 
+    console.log(Object.getOwnPropertyNames(apples));
+
+  </script>
+</body>
+
+</html>

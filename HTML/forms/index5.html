@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms part 5</title>
+</head>
+<body>
+  <h1>FORM ATTRIBUTES</h1>
+  <!-- form attr = specifies the form an input element belongs to -->
+  <p>FORM'S form attr</p>
+  <form id="form1">
+    <label for="fname">First Name :</label>
+    <input type="text" id="fname" name="fname"><br><br>
+    <input type="submit" value="Submit"><br><br>
+  </form>
+
+  <label for="lname">Last Name :</label>
+  <input type="text" id="lname" name="lname" form="form1">
+  <!-- even if the input is outside the form 
+    the attribute indicates it still part of it-->
+  <hr>
+
+  <!--action = specifies the URL of the file that will process
+    the input when the form is submitted-->
+  <p>action attr</p>
+  <form action="/sample_php_file.php">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+  </form>
+  <hr>
+
+  <!-- formenctype = how the form-data should be encoded when submitted
+    only for forms with method="post" -->
+  <p>formenctype attr</p>
+  <form action="/sample_file.php" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <input type="submit" value="Submit">
+    <input type="submit" formenctype="multipart/form-data" 
+    value="Submit as multipart/form-data"> 
+  </form>
+  <hr>
+
+
+  <!-- formmethod = defines the HTTP method for sending form-data to
+    the action URL, this overrides the method attribute of the form element -->
+  <p>formmethod attr</p>
+  <form action="/sample_file.php" method="get">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name"><br><br>
+    <input type="submit" value="Submit Using GET">
+    <input type="submit" value="Submit using POST" formmethod="post">
+  </form>
+  <hr>
+
+  <!-- formtarget = specifies a name or a keyword that 
+    indicates where to display the response that is 
+    received after submitting the form, this overrides 
+    the target attribute of the form element-->
+  <p>formtarget attr</p>
+  <form action="/sample_file.php">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name"><br><br>
+    <input type="submit" value="Submit">
+    <input type="submit" value="Submit to a new window/tab" formtarget="_blank">
+  </form>
+  <hr>
+
+  <!-- formnovalidate = an input element should not be validated when submitted,
+    overrides the novalidate attr of form element -->
+  <p>formnovalidate attr</p>
+  <form action="/sample_file.php">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name"><br><br>
+    <input type="submit" value="Submit">
+    <input type="submit" value="Submit without validation" formnovalidate="novalidate">
+  </form>
+  <hr>
+
+  <!-- novalidate = when present form-data should not be
+    validated when submitted -->
+  <p>novalidate attr</p>
+  <form action="/sample_file.php" novalidate>
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>

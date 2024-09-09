@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sets Maps Conversions</title>
+  <style>
+    body {
+      font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>SETS & MAPS & CONVERSIONS</h1>
+  <script>
+    //set - collection of unique values
+    //each value van occur only once in a set
+
+    //declarations
+    const letters = new Set(["a","b","c"]);
+    const numbers = new Set();
+    //add values
+    numbers.add(1);
+    numbers.add(2);
+    numbers.add(3);
+    //if adding the same elements only the 1st will be added
+    numbers.add(4);
+    numbers.add(4);
+    numbers.add(4);
+    console.log(numbers);
+    //accessing
+    numbers.forEach((values) => {
+      console.log(values);
+    });
+
+    //values() - ret new iterator obj with all the vals
+    console.log(letters.values());
+    for(const x of letters.values()) {
+      console.log(x);
+    }
+
+    //Maps - holds key/value pairs, keys can be any datatype
+    //it remembers the orig insertion order of keys
+    //declaration
+    const fruits = new Map([
+      ["apples",55],
+      ["bananas",75],
+      ["oranges",95]
+    ]);
+    const colors = new Map();
+    colors.set("brown",1);
+    colors.set("black",2);
+    colors.set("white",3);
+    //set can also be used to change values
+    fruits.set("oranges",105);
+    //accessing
+    console.log(fruits.get("apples")); //returns the value
+    //no of elements
+    console.log(colors.size);
+    //checking of existence of a key
+    console.log(colors.has("brown"));
+    //removing an element
+    colors.delete("brown");
+    colors.set("brown",4);
+    console.log(colors);
+    //accessing
+    colors.forEach(function(value,key){
+      console.log(key + " : " + value);
+    })
+    //entries() - ret iterable obj with the key and values in map
+    for(const x of colors.entries()) {
+      console.log(x);
+    }
+
+    //CONVERSIONS
+    //string to num
+    Number("3.14"); //3.14
+    parseFloat("3.14"); //3.14
+    parseInt("3.14"); //3
+    let n1 = +"5"; // 5 number
+    console.log(n1);
+    //num to string
+    String(500);
+    (100).toString();
+
+  </script> 
+</body>
+</html>

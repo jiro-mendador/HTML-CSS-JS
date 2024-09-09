@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media part 1</title>
+</head>
+<body>
+  <!--multimedia = on the web it is sound, music, 
+    videos , movies and animations -->
+
+  <!-- video element = used to show video -->
+  <p>Video</p>
+  <video width="320" height="240" controls autoplay muted>
+    <source src="/HTML/intro/HaranaBurnout.mp4" type="video/mp4">
+    <source src="/HTML/intro/HaranaBurnout.ogg" type="video/ogg">
+    Your browser does not support the video tag
+  </video>
+  <!-- 
+    controls attr = adds video controls like play, pause and volume 
+    autoplay attr = plays automatically
+  -->
+
+  <!-- audio element = plays an audio file -->
+  <p>Audio</p>
+  <audio controls autoplay muted>
+    <source src="/HTML/intro/one_night_stand.mp3" type="audio/mp3">
+    <source src="/HTML/intro/one_night_stand.ogg" type="audio/ogg">
+    Your browser does not support audio element
+  </audio>
+
+  <!-- source element = allows u to specify alternative audio files -->
+
+  <!-- plug=ins = are computer program that extend the standard
+  functionality of the browser 
+       uses = runs java applets, ms activeX controls, flash movies, maps, scan 
+       for viruses, verify bank id
+  -->
+
+  <!--onject element = an embedded object within an HTML object -->
+  <p>Object Element</p>
+  <object style="border: 1px solid black;" width="100%" height="200px" data="/HTML/tables/index3.html"></object>
+
+  <p>Object with images</p>
+  <object data="/HTML/intro/img2.jpg" width="200" height="200"></object>
+
+  <!-- embed element = also defines an embedded object within an HTML document -->
+  <p>Embed with image</p>
+  <embed src="/HTML/intro/img1.png" width="200" height="200">
+
+  <p>Embed Element</p>
+  <embed src="/HTML/iframes/index1.html" width="100%" height="200px">
+
+  <!--best way to play videos on HTML is to use YouTube
+  YouTube will display an id when you save or play a video, u can use this
+  id and refer to your video in the HTML code -->
+   
+  <p>Youtube Video Inside An HTML</p>
+  <iframe  width="420" height="315" 
+  src="https://www.youtube.com/embed/1ismtABVLGc?playlist=G3e-cpL7ofc&loop=1&autoplay=1&mute=1&controls=1">
+  </iframe>
+
+  <!-- 
+    adding autoplay=1 in the url will automatically play the video 
+    YouTube Playlist = a comma separated list of videos to play
+    YouTube loop = add loop=1 to the url to loop 4ever
+  -->
+
+
+</body>
+</html>

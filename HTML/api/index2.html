@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API part 2</title>
+</head>
+<body>
+  <!--web storage api
+    web storage = web app can store data locally within the user's browser
+    window.localStorage = stores data with no expiration date
+    window.sessionStorage = stores data for one session 
+    (data is lost when the browser tab is closed)
+    before using web storage check the browser support 
+    for the localStorage and sessionStorage
+  -->
+  <div id="result"></div>
+
+  <p>Click the button to see the counter increase</p>
+  <button onclick="clickCounterLocalStorage()" type="button">Click Me!</button>
+  <div id="result2"></div>
+
+  <script>
+    if(typeof(Storage) !== "undefined") {
+       //code for localStorage/sessionStorage
+    } else {
+      //Sorry, no web storage support
+    }
+
+    //store
+    localStorage.setItem("lastname","Smith");
+
+    //retrieve
+    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+    //or
+    document.getElementById("result").innerHTML = localStorage.lastname;
+
+    //remove
+    localStorage.removeItem("lastname");
+
+    function clickCounterLocalStorage() {
+      if(typeof(Storage) !== "undefined") {
+        if(localStorage.clickcount) {
+          localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+          localStorage.clickcount = 1;
+        }
+        document.getElementById("result2").innerHTML = 
+        "You clicked the button " + localStorage.clickcount + " times(s)";
+      } else {
+        document.getElementById("result2").innerHTML = 
+        "Sorry, your browser does not support web storage...";
+      }
+    }
+
+    function clickCounterSessionStorage() {
+      if(sessionStorage.clickcount) {
+        sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+      } else {
+        sessionStorage.clickcount = 1;
+      }
+      document.getElementById("result2").innerHTML = "You have clicked the button " + 
+      sessionStorage.clickcount + " time(s) in this session"
+    }
+
+  </script>
+</body>
+</html>
