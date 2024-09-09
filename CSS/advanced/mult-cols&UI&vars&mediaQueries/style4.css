@@ -1,0 +1,72 @@
+.title {
+  text-align: center;
+}
+
+.div1, .div2 {
+  text-align: center;
+  background-color:gray;
+  padding:10px 20px;
+  color:white;
+  margin:10px 5px;
+}
+
+/*media queries uses
+- w and h of viewport, device
+- orientation (landscape/portrait mode)
+- resolution
+syntax
+@media not | only mediatype and (expressions) {
+  CSS-CODE;
+}
+*/
+
+@media only screen and (max-width:800px){
+  .div1 {
+    background-color:darkolivegreen;
+  }
+}
+
+@media only screen and (min-width:800px) {
+  .div2 {
+    background-color:violet;
+  }
+}
+
+/*typical breakpoints for devices*/
+.common-br * {
+  box-sizing: border-box;
+}
+
+.common-br {
+  border:5px solid black;
+}
+
+.common-br div {
+  float:left;
+  width:33.33333%;
+  border:5px solid wheat;
+  background-color:tan;
+  color:white;
+  padding:10px 20px;
+  text-align: center;
+  height:150px;
+}
+
+.common-br::after {
+  content: "";
+  clear:both;
+  display:table;
+}
+
+@media only screen and (max-width:992px) {
+  .common-br div {
+    width:50%;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .common-br div {
+    float:none;
+    width:100%;
+  }
+}

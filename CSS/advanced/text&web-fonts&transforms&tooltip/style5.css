@@ -1,0 +1,24 @@
+.title {
+  text-align: center;
+}
+
+/*tooltip - show extra information about something when moust hover to the element*/
+.tt-container {
+  text-align: center;
+  margin: auto;
+}
+
+.tt-text {
+  position:absolute;
+  margin:0 0 0 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: white;
+  padding: 10px;
+  background-color: #1e1e1e;
+  display:none;
+}
+
+.tt-container:hover .tt-text {
+  display:inline-block;
+}

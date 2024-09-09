@@ -1,0 +1,102 @@
+h1.title {
+  text-align: center;
+}
+
+.grid1 {
+  display: grid;
+  /*inline-grid*/
+  grid-template-columns: auto auto auto;
+  background-color: tomato;
+  row-gap: 10px;
+  column-gap: 10px;
+  /*shorthand is gap:row col*/
+}
+
+.grid1 div:nth-child(1) {
+  /*ifu have 3 cols this will expand up to second col 
+  bc this are the gridlines number | | | |  */
+  grid-column-start: 1;
+  /*first col line*/
+  grid-column-end: 3;
+  /*third col line*/
+  background-color: tan;
+}
+
+.grid1 div:nth-child(2) {
+  /*if u have 3 rows this will expand up to last row*/
+  grid-row-start: 2;
+  /*2nd row line*/
+  grid-row-end: 4;
+  /*4th row line*/
+  background-color: tan;
+}
+
+/*shorthand grid:
+A shorthand property for the grid-template-rows, 
+grid-template-columns, 
+grid-template-areas, 
+grid-auto-rows, 
+grid-auto-columns, 
+and the grid-auto-flow properties
+*/
+
+
+.grid1 div {
+  background-color: gray;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.grid2 {
+  background-color:aqua;
+  display:grid;
+  grid-template-columns:50px 100px 150px 200px;
+  grid-template-rows:100px 50px;/*defines the height of rows*/
+  justify-content:center;/*align horizontally*/
+  align-content:center;/*align vertically*/
+  height:300px;
+}
+
+.grid2 div {
+  border:1px solid red;
+  background-color:tan;
+}
+
+.grid3 {
+  display:grid;
+  background-color:tan;
+  color:white;
+  gap:5px;
+  grid-template-columns:auto auto auto;
+  grid-template-rows:repeat(10, 35px);
+  padding:5px;
+}
+
+.grid3 div {
+  padding:5px;
+  background-color:darkolivegreen;
+}
+
+.grid3 div:nth-child(1) {
+  grid-column:1 / 3; /*shorthand for grid col start and end*/
+  background-color:black;
+}
+
+.grid3 div:nth-child(2) {
+  grid-row:2 / 4; /*shorthand for grid row start and end*/
+  background-color:purple;
+}
+
+.grid3 div:nth-child(8) {
+  grid-column:1 / span 3; /*span 3 columns*/
+  background-color:tomato;
+}
+
+.grid3 div:nth-child(9) {
+  grid-area:5 / 1 / 7 / 4; /*shorthand for row/col start, row/col end*/
+  background-color:darkred;
+}
+
+/*NOTEEEEEEEEEEEEEEE : continue on naming grid items part!!!!!!!*/

@@ -1,0 +1,23 @@
+.title {
+  text-align: center;
+}
+
+.resize {
+  border:2px solid black;
+  resize:both;
+  overflow:auto;
+  padding:10px;
+}
+
+textarea {
+  resize:none; /*textarea is resizable by default, setting it to none disabling it*/
+  padding:10px;
+}
+
+.outline {
+  margin:20px;
+  border:1px solid black;
+  outline:4px solid red;
+  outline-offset:15px;/*the offset allows space between border and the outline*/
+  /*content > padding > border > outline-offset > outline > margin*/
+}

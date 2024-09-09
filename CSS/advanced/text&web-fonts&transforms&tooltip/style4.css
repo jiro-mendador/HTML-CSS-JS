@@ -1,0 +1,81 @@
+.title {
+  text-align: center;
+}
+
+div {
+  margin:auto;
+  background-color:darkred;
+  color:white;
+  border:1px solid yellow;
+  width:100px;
+  height:100px;
+}
+
+/*rotates on its axis*/
+.rotateZ {
+  transform:rotateZ(35deg);
+}
+
+.transition {
+  transition:width 2s ease-in-out, height 3s linear 1s;
+  /*shorthand = property, duration, timing, delay*/
+}
+
+.transition:hover {
+  width:200px;
+  height:150px;
+}
+
+/*@keyframes = the animation will gradually change from the curr to new style*/
+@keyframes change-bgcolor {
+  from {background-color:darkred;}
+  to {background-color:darkgreen;}
+}
+
+.animation {
+  animation-name:change-bgcolor;
+  animation-duration:3s;
+}
+
+/*using percentage in @keyframes to add more styles*/
+@keyframes change-multiple {
+  0% {background-color:darkred;}
+  25% {background-color:yellow;transform:rotate(180deg);}
+  50% {background-color:blue; height:200px;}
+  100% {background-color:green; width:500px;}
+}
+
+.animation-percent {
+  animation-name:change-multiple;
+  animation-duration:4s;
+  animation-delay:3s;
+  animation-iteration-count:1;
+  /*animation-direction:reverse; /*running the frames from 100 to 0*/
+  animation-direction:alternate; /*running the frames from 0 to 100 then 100 to 0*/
+  /*alternate-reverse 100 to 0 then 0 to 100*/
+  animation-timing-function:ease-in-out;
+  /*fill mode - specify a stylefor the target element when the animation is not playing*/
+  animation-fill-mode:forwards; /*retain the last keyframe style*/
+  /*backwards - retain the first keyframe style*/
+  /*both - extending the animation in both directions*/
+}
+
+@keyframes shorthand {
+  25% {
+    margin-top:50px;
+    margin-left:50px;
+  } 
+  50% {
+    margin-left:100px;
+    margin-bottom:-50px;
+  }
+  100% {
+    margin-left:0px;
+    margin-bottom:0px;
+  }
+}
+
+.animation-shorthand {
+  margin:0px;
+  animation:shorthand 5s ease-in-out 2s infinite alternate;
+}

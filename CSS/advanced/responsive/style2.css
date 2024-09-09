@@ -1,0 +1,44 @@
+* {
+  box-sizing:border-box;
+}
+
+.title {
+  text-align: center;
+}
+
+div.d1 .img1 {
+  width: 100%;
+  height: auto;
+}
+
+div.container {
+  width: 400px;
+  height: 200px;
+  background-color: tomato;
+  border: 1px solid red;
+}
+
+div.d1 {
+  margin: 10px 0 100px 0;
+}
+
+div.d2,
+div.d3,
+div.d4,
+div.d5 {
+  background-image: url(/IMAGES/mountain2.jpg);
+  background-repeat: no-repeat;
+}
+
+div.d2 {
+  background-size: contain;
+}
+
+div.d3 {
+  background-size: 100% 100%;
+
+}
+
+div.d4 {
+  background-size: cover;
+}

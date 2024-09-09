@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masking part 1</title>
+  <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+  <h1 class="title">Masking</h1>
+  <p>An image with mask layer</p>
+  <div class="mask1">
+    <img src="/IMAGES/mountain3.jpg" alt="mountain" width="250" height="250">
+  </div>
+  <p>An image with linear-gradient mask layer</p>
+  <div class="mask2">
+    <img src="/IMAGES/mountain4.jpg" alt="mountain" width="250" height="250">
+  </div>
+  <p>An image with radial-gradient mask layer</p>
+  <div class="mask3">
+    <img src="/IMAGES/mountain5.jpg" alt="mountain" width="600" height="400">
+  </div>
+  <p>An image with SVG as mask layer</p>
+  <svg width="600" height="400">
+  <mask id="svgmask1">
+    <polygon fill="#ffffff" points="200 0, 400 400, 0 400"></polygon>
+  </mask>
+  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/IMAGES/mountain2.jpg" mask="url(#svgmask1)"></image>
+</svg>
+
+
+
+</body>
+</html>

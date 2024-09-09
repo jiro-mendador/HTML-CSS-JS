@@ -1,0 +1,129 @@
+.title {
+  text-align: center;
+}
+
+/*flex-container properties are
+flex-direction - which direction wants to stack the items
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content
+*/
+
+.flex-container1 {
+  display: flex;
+  background-color: tan;
+}
+
+.flex-container1>div {
+  background-color: white;
+  padding: 10px;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.flex-container2 {
+  display: flex;
+  background-color: #1f1f1f;
+  flex-direction: column;
+  /*top to bottom (can be reversed) other vals  (row, can be reversed)*/
+  color:white;
+}
+
+.flex-container2 > div {
+  background-color: darkolivegreen;
+  padding: 10px;
+  margin: 10px;
+}
+
+.flex-container3 {
+  display: flex;
+  background-color: gray;
+  flex-direction: row;
+  width: 500px;
+  flex-wrap:wrap; /*can be reversed, other vals (no-wrap)*/
+}
+
+.flex-container3 > div {
+  background-color: antiquewhite;
+  padding: 10px;
+  margin: 10px;
+}
+
+.flex-container4 {
+  display: flex;
+  background-color: darkred;
+  width:200px;
+  /*shortcut for wrap and direction*/
+  flex-flow:row-reverse wrap;
+}
+
+.flex-container4 > div {
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin: 10px;
+}
+
+.flex-container5 {
+  display: flex;
+  background-color: darkred;
+  width:200px;
+  /*shortcut for wrap and direction*/
+  flex-flow:row wrap;
+  justify-content:center; /*align elements horizontally 
+  other vals (flex-start, flex-end, space-around, space-between*/
+  height:100px;
+  align-items:center; /*align elements vertically 
+  other vals(same for justify-content)*/
+}
+
+.flex-container5 > div {
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin: 10px;
+  height:25px;
+}
+
+.flex-container6 {
+  display: flex;
+  background-color: darkred;
+  width:500px;
+  /*shortcut for wrap and direction*/
+  flex-flow:row wrap;
+  height:200px;
+  align-content:center; /*aligns the flex lines 
+  (imaginary horizontal lines between rows)*/
+  /*it is c*/
+}
+
+.flex-container6 > div {
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin: 10px;
+  height:25px;
+}
+
+.centered-div {
+  margin:auto;
+  width:400px;
+  display:flex;
+  background-color:tomato;
+  color:white;
+  padding:20px;
+  justify-content:center;
+  align-items:center;
+  height:300px;
+}
+
+.centered-div div {
+  border:1px solid black;
+  background-color:tan;
+  padding:10px;
+  height:150px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}

@@ -1,0 +1,53 @@
+.title {
+  text-align: center;
+}
+
+.t-of {
+  width:25s0px;
+  border:1px solid black;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.clip {
+  text-overflow: clip;
+}
+
+.ellipsis {
+  text-overflow:ellipsis;
+}
+
+.visible {
+  overflow:visible;
+}
+
+.ww {
+  border:1px solid red;
+  width:150px;
+}
+
+.break-word {
+  word-wrap:break-word;
+}
+
+.keep-all {
+  word-wrap:keep-all;
+}
+
+.break-all {
+  word-wrap:break-all;
+}
+
+.wm-hr-tb {
+  writing-mode:horizontal-tb;
+}
+
+.wm-v-rl {
+  writing-mode:vertical-rl;
+}
+
+.wm-v-lr {
+  writing-mode:vertical-lr;
+  color:red;
+  font-size:20px;
+}

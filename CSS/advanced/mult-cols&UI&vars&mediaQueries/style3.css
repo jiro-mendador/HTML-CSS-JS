@@ -1,0 +1,33 @@
+.title {
+  text-align: center;
+}
+
+/*var() - used to insert the value of a css variable
+syntax - var(--name, value) can be global or local, val insdie is optional
+global - declare inside the :root selector
+local - declare inside the selector that is going to use it
+*/
+
+:root {
+  --col-acc-red:darkred;
+  --col-acc-green:darkgreen;
+  --white:#fefefe;
+}
+
+.d1, .d2 {
+  padding:15px;
+}
+
+.d1 {
+  background-color:var(--col-acc-red);
+  color:var(--white);
+}
+
+.d2 {
+  --col-acc-black:#111; /*local variable*/
+  --col-acc-red:red; /*overriding global and making it local*/
+  background-color:var(--col-acc-red);
+  color:var(--white);
+  border:5px solid var(--col-acc-black);
+}
+

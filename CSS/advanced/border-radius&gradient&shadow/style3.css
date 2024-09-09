@@ -1,0 +1,69 @@
+html {
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+p {
+  font-size:20px;
+}
+
+.title {
+  text-align: center;
+}
+
+/*text-shadow - applies on texts*/
+.t-sd {
+  color:white;
+  text-shadow:0 0 5px red;
+  /*shorthand = x to right, y to bottom, blur, color*/
+}
+
+.t-sd-mult {
+  text-shadow:1px 1px 3px red, 9px 9px 6px violet;
+}
+
+.t-sd-border {
+  color:coral;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+/*box-shadow - apply one or more shadows to an element*/
+.b-sd {
+  margin:0 auto 50px auto;
+  width:150px;
+  height:100px;
+  color:white;
+  background-color:coral;
+  padding:10px;
+  text-align: center;
+}
+
+.simple {
+  box-shadow:10px 10px 10px 6px lightseagreen;
+  /*shorthand = x to r, y to b, blur, spread-radius, color*/
+}
+
+/*inset param - changes the shadow from an outer shadow(outset) to an inner shadow*/
+.inset {
+  box-shadow:10px 10px 5px lightblue inset;
+}
+
+.mult {
+  box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;
+}
+
+.card {
+  margin:0 auto 50px auto;
+  width:250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  padding:0 0 10px 0;
+}
+
+.card img {
+  width:100%;
+  height:100%;
+}
+
+.card p {
+  font-size:15px;
+}

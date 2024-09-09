@@ -1,0 +1,75 @@
+.title {
+  text-align: center;
+}
+
+div {
+  width:100px;
+  padding:20px;
+  background-color:#04aa6dff;
+  color:white;
+  margin:0 0 10px 0;
+}
+
+div.radius1 {
+  border-radius:15px;
+}
+
+div.radius2 {
+  border-radius:15px 30px;
+}
+
+div.radius3 {
+  border-radius:15px 30px 40px;
+}
+
+div.radius-ellipses {
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  text-align: center;
+  line-height:100px;
+}
+
+div.multi-bg {
+  width:800px;
+  height:600px;
+  margin:auto;
+  background-image:url(/IMAGES/tree.png), url(/IMAGES/bg.webp);
+  background-position:center center, center;
+  background-repeat:no-repeat, no-repeat;
+  background-size:contain,cover;
+  /*background-attachment:fixed, fixed;*/
+  background-origin:padding-box,padding-box;
+  /*specifies the painting area of the bg*/
+  border:10px dotted black;
+  background-clip:content-box;
+  /*
+  border - starts from the up left corner of border
+  padding - (def) start from up left corner of padding edge
+  content - starts from the up left corner of content 
+  */
+}
+
+.multi-bg p {
+  padding:10px;
+  font-size:20px;
+  background-color:brown;
+  border-radius:15px;
+}
+
+div.green, div.transparent, div.curr-col {
+  width:500px;
+  margin:10px auto;
+  border:1px solid black;
+}
+
+div.transparent {
+  background-color:transparent;
+  color:black;
+}
+
+div.curr-col {
+  color:red;
+  border:10px solid currentColor; /*it takes the current value of color property*/
+  background-color:transparent;
+}

@@ -1,0 +1,86 @@
+.title {
+  text-align: center;
+}
+
+.f-cont {
+  display: flex;
+  background-color: tomato;
+  width: 50%;
+  padding: 20px;
+  color: white;
+}
+
+.f-cont div {
+  padding: 10px;
+  background-color: teal;
+  margin: 0 5px;
+}
+
+div.f1 div:nth-child(1) {
+  order: 2;
+  /*specifies the order of items inside a flex*/
+}
+
+div.f1 div:nth-child(2) {
+  order: 3;
+}
+
+div.f1 div:nth-child(3) {
+  order: 1;
+}
+
+
+div.f2 div:nth-child(1) {
+  flex-grow: 3;
+  /*how much a flex item will grow relative to the rest of the flex items.*/
+}
+
+div.f2 div:nth-child(2) {
+  flex-grow: 1;
+}
+
+div.f2 div:nth-child(3) {
+  flex-grow: 1;
+}
+
+
+div.f3 {
+  width: 200px;
+}
+
+div.f3 div {
+  align-items: stretch;
+  width: 100px;
+}
+
+div.f3 div:nth-child(1) {
+  flex-shrink: 0;
+  /*not allowing to shrink like the rest of the elements*/
+}
+
+div.f4 div {
+  flex-basis: 100px;
+  /*setting the initial length of an item*/
+}
+
+div.f5 div:nth-child(2) {
+  flex: 0 0 200px;
+}
+
+div.f6 {
+  height: 200px;
+}
+
+div.f6 div {
+  height: 50px;
+}
+
+div.f6 div:nth-child(2) {
+  align-self: center;
+  /*overrides align-content property in container and align vertically independently*/
+}
+
+div.f6 div:nth-child(3) {
+  align-self: flex-end;
+  /*overrides align-content property in container and align vertically independently*/
+}

@@ -1,0 +1,23 @@
+.title {
+  text-align: center;
+}
+
+/*masking - u create a mask layer to place over an element 
+to partially hide portions of it*/
+
+.mask1 {
+  -webkit-mask-image: url(/IMAGES/logo.png);
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url(/IMAGES/logo.png);
+  mask-repeat: no-repeat;
+}
+
+.mask2 {
+  -webkit-mask-image: linear-gradient(black, transparent);
+  mask-image: linear-gradient(black, transparent);
+}
+
+.mask3 {
+  -webkit-mask-image: radial-gradient(circle, black 25%, rgba(0, 0, 0, 0.5)25%);
+  mask-image: radial-gradient(circle, black 25%, rgba(0, 0, 0, 0.5)25%);
+}

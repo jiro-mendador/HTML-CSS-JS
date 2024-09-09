@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive part 2</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <h1 class="title">Responsive Images</h1>
+
+  <div class="container d1">
+    <img src="/IMAGES/mountain1.jpg" alt="mountain" class="img1">
+  </div>
+
+  <p style="margin-top:50px;">bg-size = contain</p>
+  <div class="container d2">
+  </div>
+  
+  <p>bg-size = 100% 100%</p>
+  <div class="container d3">
+  </div>
+  
+  <p>bg-size = cover</p>
+  <div class="container d4">
+  </div>
+
+  <p>picture element gives flexibility resize to see the effect</p>
+  <picture>
+    <source srcset="/IMAGES/mountain2.jpg" media="(max-width: 800px)">
+    <source srcset="/IMAGES/mountain3.jpg">
+    <img src="/IMAGES/mountain4.jpg" alt="Flowers" width="300" height="300">
+  </picture>
+
+
+
+
+</body>
+</html>

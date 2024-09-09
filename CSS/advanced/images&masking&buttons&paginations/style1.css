@@ -1,0 +1,144 @@
+.title {
+  text-align: center;
+}
+
+/*circular image*/
+img {
+  margin: 10px;
+}
+
+.img1 {
+  border-radius: 50%;
+}
+
+.img2 {
+  border: 1px solid burlywood;
+  padding: 5px;
+}
+
+.img3 {
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+.img3:hover {
+  background-color: lightblue;
+}
+
+/*responsive image*/
+.img4 {
+  margin: 0;
+  max-width: 100%;
+}
+
+/*centering an image*/
+.img5 {
+  display: block;
+  margin: 0 auto;
+}
+
+/*image polaroid*/
+.img-polaroid {
+  margin: 5px 5px;
+  float: left;
+  width: 25%;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img-polaroid img {
+  width: 100%;
+  margin: 0;
+}
+
+.pol-cont::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.t-pos {
+  position: relative;
+  width: 80%;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.t-pos img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.t-pos p {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  color: white;
+}
+
+/*filters*/
+.img6 {
+  filter: saturate(10);
+}
+
+/*other filters*/
+.blur {
+  filter: blur(4px);
+}
+
+.brightness {
+  filter: brightness(250%);
+}
+
+.contrast {
+  filter: contrast(180%);
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.huerotate {
+  filter: hue-rotate(180deg);
+}
+
+.invert {
+  filter: invert(100%);
+}
+
+.opacity {
+  filter: opacity(50%);
+}
+
+.saturate {
+  filter: saturate(7);
+}
+
+.sepia {
+  filter: sepia(100%);
+}
+
+.shadow {
+  filter: drop-shadow(8px 8px 10px green);
+}
+
+.img7:hover {
+  transform: scaleX(-1);
+}
+
+.img8 {
+  display: block;
+  -webkit-box-reflect:right 20px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+  /*position, offset, gradient*/
+}
+
+ /*object-fit = allows u to manipulate how the image will fit inside a container*/
+ .img9 {
+  width:200px;
+  height:300px;
+  border:1px solid black;
+  object-fit:cover; /*contain, fill, none, scale-down*/
+  object-position:10% 10%;
+}

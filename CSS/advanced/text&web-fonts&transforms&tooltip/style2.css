@@ -1,0 +1,24 @@
+.title {
+  text-align: center;
+}
+
+/*web fonts - allow designers to use fonts 
+that are not installed on the user's computer*/
+
+/*FORMATS
+OTF - OpenType Fonts - scalable comp font
+WOFF - Web Open Font Format - combined OTF AND TTF, recommended by W3C
+WOFF 2.0 - better compression of WOFF
+SVG Fonts/Shapes - allows to be used as glyphs when disp text
+EOT - Embdedded OpenType Fonts - compact form of OTF
+*/
+
+@font-face {
+  font-family:myFirstFont;
+  src: url(/IMAGES/OpenSans-Regular.ttf);
+}
+
+.wf {
+  font-family:myFirstFont;
+  font-size:20px;
+}
