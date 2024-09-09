@@ -1,0 +1,92 @@
+.t1 {
+  text-align: center;
+}
+
+/*
+Generic font families
+Serif, sans-serif, monospace, cursive, fantasy
+*/
+
+/*font-family : should hold several fonts also called as fallback system
+  start with the font you want and end with the a generic family
+*/
+
+.parag1 {
+  text-align: justify;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.parag2 {
+  text-align: justify;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.parag3 {
+  text-align: justify;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+/*web safe fonts = fonts that are universally installed across all browser and devices*/
+/*the second and third fonts are backups in case the first one is not found*/
+
+/*font style = mostly used to specify italic text
+  font-weight = weight of font
+*/
+p.normal {
+  font-style:normal;
+  font-weight:normal;
+}
+
+p.italic {
+  font-style:italic;
+  font-weight:bold;
+}
+
+p.oblique {
+  font-style:oblique;
+}
+
+p.font-variant-small {
+  font-variant:small-caps; /*specifies if the text will be displayed small caps font*/
+}
+
+p.font-size {
+  font-size:50px;
+}
+
+p.font-size-em {
+  font-size:2.5em; /*allows the users to resize the text in the browser menu*/
+  /*default font-size in browser is 16px, 1em is = default font-size
+    16px = 1em
+    to convert pixels to em the formula is pixels/16 = em
+    40/16 = 2.5*/
+}
+
+/*
+solution that work in all browsers is to set the default size of body to 100%
+*/
+
+body {
+  font-size:100%;
+}
+
+.font-size-vw {
+  font-size:5vw;
+}
+
+.google-fonts1 {
+  font-family:"Sofia",sans-serif;
+}
+
+.google-fonts2 {
+  font-family:"Audiowide",sans-serif;
+} /*
+to use multiple google fonts in one link 
+at the end of the link separate them using "|"
+like this https://fonts.googleapis.com/css?family=Sofia|Audiowide
+*/
+
+/*font shorthand = style, variant, weight, size/line-height, font-family*/
+p.font-shorthand {
+  font:italic small-caps bold 50px/30px Georgia, serif;
+}

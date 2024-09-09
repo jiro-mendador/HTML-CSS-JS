@@ -1,0 +1,47 @@
+.title {
+  text-align: center;
+}
+
+.simple-link:link {
+  color: hotpink;
+  text-decoration: none; /*to remove underline*/
+  background-color: black;
+  padding:20px 50px;
+  border-radius:50px;
+  display:inline-block;
+  text-align:center;
+  font-size:15px;
+}
+
+/*links can be styled depending on what state thet are in*/
+.simple-link:hover {
+  color: black;
+}
+
+.simple-link:active {
+  color: aqua;
+}
+
+.simple-link:visited {
+  color: white;
+}
+
+/*order rules for several link states
+hover must come after default and visited
+active must come after hover
+*/
+
+.box-link {
+  text-decoration:none;
+  padding:20px 50px;
+  color: tomato;
+  border:2px solid tomato;
+  font-size:15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+}
+
+.box-link:hover {
+  background-color:tomato;
+  color: white;
+}

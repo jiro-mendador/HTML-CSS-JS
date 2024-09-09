@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display part 1</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+  <h1 class="title">Display Property</h1>
+  <button class="btn_show" id="btn_show">Show Element</button>
+  <p class="parag1">This paragraph display is set to none (now block)</p>
+  <p class="parag2">This paragraph visibility is set to hidden (now visible)</p>
+  <script>
+    var b = document.getElementById("btn_show");
+    b.addEventListener("click", show);
+    
+    var p = document.getElementsByClassName("parag1");
+    var p2 = document.getElementsByClassName("parag2");
+
+    function show() {
+      if (window.getComputedStyle(p[0]).display == "block") {
+        b.innerHTML = "Show Element";
+        p[0].style.display = "none";
+        p2[0].style.visibility = "hidden";
+      } else {
+        p[0].style.display = "block";
+        b.innerHTML = "Hide Element";
+        p2[0].style.visibility = "visible";
+      }
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+.title1, .title2 {
+  text-align: center;
+}
+
+.margin-indiv {
+  margin-top:25px;
+  margin-right:25px;
+  margin-bottom:25px;
+  margin-left:25px;
+} 
+
+.margin-all {
+  margin:25px 25px 25px 25px; /*top right bottom left margin*/
+} /*if margin has 3 values (top, right left, bottom), 2 (top bottom, right left)*/
+
+.margin-auto {
+  width:300px;
+  margin: auto; /* makes the element horizontally centered to the parent*/
+  border:1px dotted green;
+}
+
+/*margin collapsed when two element's margins overlapped like bottom and top,
+the highest will be the margin between them*/
+.parentDiv1 {
+  margin-left:100px;
+  border:1px solid blue;
+}
+
+.margin-inherit {
+  margin: inherit;
+}
+
+.heading1 {
+  margin:0 0 50px 0;
+}
+
+.heading2 {
+  margin:20px 0 0 0;
+}
+
+/*individual padding*/
+.padding-indiv {
+  padding-top:50px;
+  padding-right:30px;
+  padding-bottom:50px;
+  padding-left:80px;
+}
+
+.padding-all {
+  padding:100px 50px 50px 100px;
+} /*padding shorthand = top right bottom left padding*/
+/*same case in margin if 3 values (top, right left, bottom) 2 (top bottom, right left) */
+
+/*overall width will be 325 because paddings are included in width*/
+.padding-plus-width {
+  width:300px;
+  padding:25px;
+  border:1px solid black;
+}
+
+/*to have a padding without adding in to the actual width use box-sizing:border-box*/
+.padding-box-size {
+  width:300px;
+  padding:25px;
+  box-sizing:border-box;
+  border:1px solid black;
+}
+

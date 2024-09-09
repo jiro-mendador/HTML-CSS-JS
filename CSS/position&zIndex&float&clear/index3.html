@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Float and clear part 1</title>
+  <link rel="stylesheet" href="style3.css">
+</head>
+
+<body>
+  <h1 class="title" id="HOME">Float and Clear</h1>
+  <div class="div1">
+    <img src="/CSS/intro/img3.jpg" alt="book" class="img1">
+    <p>The image float = right</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet volutpat purus, sed dictum tortor
+      lacinia et. Sed eu erat fringilla, consequat lacus vitae, maximus ipsum. Nam massa sem, tempus ut sodales ac,
+      lobortis aliquam felis. Sed accumsan massa eros, nec aliquam risus bibendum in. Curabitur vitae accumsan ex.
+      Curabitur dictum orci at rhoncus pulvinar. Aenean ac elit ipsum. Pellentesque egestas ligula magna, non placerat
+      eros maximus ac. Donec vitae ornare mauris, nec pretium nibh. Donec id lectus sit amet ipsum porttitor consequat
+      quis at nibh. Phasellus eu magna porttitor, rhoncus mi non, placerat lectus. Nam sodales orci mauris, sed dapibus
+      elit dictum et. Morbi at turpis a enim convallis posuere. Maecenas nisi nulla, volutpat et molestie id, lobortis
+      quis velit. Vivamus auctor mollis mauris, id condimentum erat feugiat faucibus.
+    </p>
+  </div>
+  <div class="div1">
+    <img src="/CSS/intro/img3.jpg" alt="book" class="img2">
+    <p>The image float = left</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet volutpat purus, sed dictum tortor
+      lacinia et. Sed eu erat fringilla, consequat lacus vitae, maximus ipsum. Nam massa sem, tempus ut sodales ac,
+      lobortis aliquam felis. Sed accumsan massa eros, nec aliquam risus bibendum in. Curabitur vitae accumsan ex.
+      Curabitur dictum orci at rhoncus pulvinar. Aenean ac elit ipsum. Pellentesque egestas ligula magna, non placerat
+      eros maximus ac. Donec vitae ornare mauris, nec pretium nibh. Donec id lectus sit amet ipsum porttitor consequat
+      quis at nibh. Phasellus eu magna porttitor, rhoncus mi non, placerat lectus. Nam sodales orci mauris, sed dapibus
+      elit dictum et. Morbi at turpis a enim convallis posuere. Maecenas nisi nulla, volutpat et molestie id, lobortis
+      quis velit. Vivamus auctor mollis mauris, id condimentum erat feugiat faucibus.
+    </p>
+  </div>
+
+  <br>
+  <p style="text-align: center">The ff divs float left next to each other</p>
+  <div class="div2">Div 3</div>
+  <div class="div3">Div 4</div>
+  <div class="div4">Div 5</div>
+
+  <p class="parag-clear" id="CONTACT">
+    This parag has clear property = left that prevent it to also
+    float left since the last div has float left
+  </p>
+
+  <div class="div5">
+    <img src="/CSS/intro/img3.jpg" alt="book" class="img3">
+    <p>The div has overflow auto</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet volutpat purus, sed dictum tortor
+      lacinia et. Sed eu erat fringilla, consequat lacus vitae, maximus ipsum. Nam massa sem, tempus ut sodales ac,
+      lobortis aliquam felis. Sed accumsan massa eros, nec aliquam risus bibendum in. Curabitur vitae accumsan ex.
+      Curabitur dictum orci at rhoncus pulvinar. Aenean ac elit ipsum. Pellentesque egestas ligula magna, non placerat
+      eros maximus ac. Donec vitae ornare mauris, nec pretium nibh. Donec id lectus sit amet ipsum porttitor consequat
+      quis at nibh. Phasellus eu magna porttitor, rhoncus mi non, placerat lectus. Nam sodales orci mauris, sed dapibus
+      elit dictum et. Morbi at turpis a enim convallis posuere. Maecenas nisi nulla, volutpat et molestie id, lobortis
+      quis velit. Vivamus auctor mollis mauris, id condimentum erat feugiat faucibus.
+    </p>
+  </div>
+
+  <p class="parag-clear">Using box-sizing border box, clearfix and float</p>
+  <div class="parent-div">
+    <div class="content1">Some Text inside</div>
+    <div class="content2">Some Text inside</div>
+    <div class="content3">Some Text inside</div>
+  </div>
+  <p style="text-align: center;" id="ABOUT_US">The above parent has clearfix for the float</p>
+
+  <ul class="nav-float">
+    <li><a href="#HOME">HOME</a></li>
+    <li><a href="#CONTACT">CONTACT</a></li>
+    <li><a href="#ABOUT_US">ABOUT US</a></li>
+  </ul>
+  
+</body>
+
+</html>

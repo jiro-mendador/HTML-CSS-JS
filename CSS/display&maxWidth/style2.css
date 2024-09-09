@@ -1,0 +1,17 @@
+.title {
+  text-align: center;
+}
+
+.div1, .div2 {
+  margin: auto;
+  border:1px solid green;
+  padding:10px 20px;
+}
+
+.div1 {
+  width:500px;
+}
+
+.div2 {
+  max-width:500px;
+}

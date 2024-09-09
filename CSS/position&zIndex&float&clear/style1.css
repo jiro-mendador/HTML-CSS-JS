@@ -1,0 +1,70 @@
+.title {
+  text-align: center;
+}
+
+/*
+html elements are positioned as static by default
+top,left,bottom,right will not work unless position property is set
+static = normal flow of web page
+relative = it is relative to it's normal position
+fixed = always stays the same even if the page is scrolled
+absolute = positioned relative to the nearest positioned ancestor (if no ancestor it uses the body)
+  absolute can overlap elements and remove from the normal flow
+sticky = positioned bases on user's scroll position. toggles between (relative and fixed)
+*/
+
+div {
+  border: 2px solid green;
+  padding:10px;
+  width:500px;
+}
+
+body {
+  height:200vh;
+}
+
+.static {
+  position: static; /*top etc wont work in static*/
+}
+
+.relative {
+  position: relative;
+  left:25%;
+}
+
+.fixed {
+  position:fixed;
+  left:100px;
+}
+
+.relative-absolute {
+  position: relative;
+  top:50px;
+  height:100px;
+}
+
+.absolute {
+  position: absolute;
+  top:50%;
+}
+
+.abs {
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+.relative-sticky {
+  position: relative;
+  top:50px;
+  height:100px;
+  overflow-y: auto;
+}
+
+.sticky {
+  position:-webkit-sticky; /*for safari*/
+  position: sticky;
+  top:0;
+  width:auto;
+}
+

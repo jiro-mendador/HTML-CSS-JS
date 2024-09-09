@@ -1,0 +1,55 @@
+.title {
+  text-align: center;
+}
+
+/*
+difference of inline and inline-block
+  inline-block = width and height can be set, 
+  top and bottom margins/paddings are respected, 
+compared to block it doesn't add new line at the end
+*/
+
+.inline, .inline-block, .block {
+  width:100px;
+  height:100px;
+  background-color:green;
+  color: white;
+  padding:5px;
+  border:1px solid red;
+}
+
+.inline {
+  display: inline; /*default*/
+}
+
+.inline-block {
+  display:inline-block;
+}
+
+.block {
+  display: block;
+}
+
+.nav {
+  list-style-type: none;
+  background-color:tomato;
+  padding:0;
+  margin:0;
+}
+
+.nav li {
+  display:inline-block;
+  text-align: center;
+  padding:10px;
+}
+
+.nav li a {
+  color:white;
+  text-decoration: none;
+  font-size:20px;
+  padding:10px;
+}
+
+.nav li a:hover {
+  background-color:black;
+}

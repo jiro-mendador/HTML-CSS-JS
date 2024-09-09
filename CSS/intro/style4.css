@@ -1,0 +1,26 @@
+.t1 {
+  text-align: center;
+}
+
+/*CSS Outline = a line drawn outside the element's border*/
+/*outline attr = style, color, width, offset*/
+
+.outline {
+  margin: auto;
+  max-width:500px;
+  border:1px solid black;
+  padding:10px;
+  outline-style:solid;
+  outline-color:red;
+  outline-width:10px;
+}
+
+/*outline shorthand = width, style, color*/
+.outline-shorthand {
+  padding:10px;
+  margin:50px auto 0 auto;
+  max-width:500px;
+  border:1px solid green;
+  outline:10px solid blue;
+  outline-offset:15px; /*adds a space between an outline and the border*/
+}

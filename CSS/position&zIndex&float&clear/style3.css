@@ -1,0 +1,150 @@
+.title {
+  text-align: center;
+}
+
+/*
+float property = used for formatting and positioning content
+float values = rigt,left,none,inherit
+can be used to wrap around images
+*/
+
+.div1 {
+  padding: 10px;
+  border: 2px solid green;
+  margin: 10px;
+}
+
+
+img {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.img1 {
+  float: right;
+}
+
+.img2 {
+  float: left;
+}
+
+.div2,
+.div3,
+.div4 {
+  float: left;
+  padding: 20px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  color: white;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.div2 {
+  background-color: cadetblue;
+}
+
+.div3 {
+  background-color: turquoise;
+}
+
+.div4 {
+  background-color: aquamarine;
+}
+
+/*clear = if we want the next element below now to float on right or left
+  values : 
+  none = default, 
+  left = pushed below left floated elements,
+  right = pushed below right floated elements,
+  both = pushed below right and left floated elems,
+  inherit = inherist the clear value from its parent
+*/
+
+.parag-clear {
+  text-align: center;
+  clear: left;
+}
+
+/*
+another way to clear the float 
+is to wrap the divs with float property 
+then apply the following to the parent
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+*/
+
+.div5 {
+  border: 2px solid green;
+  padding: 10px;
+  overflow: auto;
+}
+
+.img3 {
+  float: left;
+  width: 300px;
+  height: 300px;
+}
+
+* {
+  box-sizing: border-box;
+  /*used so that there will be now additional 
+  padding inside the divs that can break the sizing*/
+}
+
+/*
+Defines how the width and height of an 
+element are calculated: should they include padding and borders, or not
+*/
+
+.content1,
+.content2,
+.content3 {
+  background-color: gray;
+  color: white;
+  padding: 50px;
+  width: 33.33%;
+  height: 200px;
+  float: left;
+  border: 1px solid white;
+}
+
+.parent-div::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/*make a nav bar!!!!!!!!!!!!!!!!!!!!!*/
+.nav-float {
+  position:fixed;
+  top:0;
+  left:0;
+  background-color:black;
+  padding:15px;
+}
+
+li {
+  list-style-type: none;
+  float:left;
+}
+
+a {
+  color:white;
+  text-align: center;
+  text-decoration:none;
+  padding:15px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a:hover {
+  background-color:darkred;
+}

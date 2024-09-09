@@ -1,0 +1,33 @@
+/*
+combinators = relationship between the selectors
+descendant selector (space) ex div p
+child selector (>) 
+adjacent selector (+)
+general sibling selector (~)
+*/
+
+.title {
+  text-align: center;
+}
+
+.descendant, .child, .adjacent, .general {
+  border:1px solid green;
+}
+
+.descendant p {
+  background-color:yellow;
+} /*all the p element inside 
+no matter how deeply it is nested will be accessed*/
+
+.child > p {
+  background-color:tomato;
+} /*only the p that is inside the div will be accessed and 
+if theres another div with p it will be ignored*/
+
+.adjacent + p { /*the next first p sibling*/
+  background-color:aquamarine;
+}
+
+.general ~ p {/*all the next  p sibling*/
+  background-color:burlywood;
+}

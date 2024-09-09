@@ -1,0 +1,89 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.title {
+  text-align: center;
+  color:teal;
+}
+
+form[name="input"] {
+  margin:10px auto;
+  border:1px solid teal;
+  max-width:700px;
+  padding:15px 25px;
+  box-sizing: border-box; /*padding and borders are included in total w and h of elem*/
+}
+
+.form-row:not(.form-row:nth-child(3)) {
+  display: flex;
+  align-items: center; /*vertically align*/
+  margin:0 0 10px 0;
+  gap:15px;
+}
+
+.form-row input, select[name="country"] {
+  padding:15px;
+  border:1px solid teal;
+}
+
+[name]:not([name="input"]) {
+  flex:1;
+  width:100%;
+}
+
+select[name="country"] {
+  display:block;
+  border-radius:4px;
+  background-color:teal;
+  color:white;
+}
+
+select option {
+  font-size:15px;
+}
+
+form[name="search-input"] {
+  text-align: center;
+}
+ 
+form[name="search-input"] input {
+  width:200px;
+  background-image:url(/IMAGES/search.png);
+  background-repeat:no-repeat;
+  background-size:30px;
+  padding:10px 10px 10px 45px;
+  background-position:10px center;
+  font-size:20px;
+  border-radius:5px;
+  border:1px solid teal;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type="search"]:focus {
+  width:50%;
+}
+
+button:first-of-type {
+
+  display:block;
+  margin:10px auto; /*trick to center an element disp + marg*/
+
+  padding:20px;
+  color:white;
+  font-size:20px;
+  border:none;
+  border-radius:10px;
+  background-color:teal;
+  transition: background-color 0.5s ease-in-out; 
+  /*transition works if an element changes a state*/
+}
+
+button:first-of-type:hover {
+  background-color:white;
+  color:teal;
+  border:1px solid teal;
+}
+ 
+
+

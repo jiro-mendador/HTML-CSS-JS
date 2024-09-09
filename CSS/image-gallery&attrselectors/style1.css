@@ -1,0 +1,65 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+  Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.title {
+  text-align: center;
+}
+
+.gallery1 {
+  padding:0 6px;
+  float:left;
+  width:24.99999%;
+  /*using the text-align trick to align the divs horizontally*/
+}
+
+div.mt-gal-par {
+  /*float:left;*/
+  /*display:inline-block; /*comment this out if u'll use float*/
+  /*margin:5px;/*optional*/
+  border: 1px solid darkgray;
+}
+
+div.mt-gal-par p {
+  padding: 15px;
+  text-align: center;
+}
+
+div.mt-gal-par img {
+  width: 100%;
+  height: auto;
+}
+
+div.mt-gal-par:hover {
+  border: 2px solid palevioletred;
+  color: palevioletred;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width:700px) {
+  .gallery1 {
+    width:49.99999%;
+    margin:6px 0;
+  }
+}
+
+@media only screen and (max-width:500px) {
+  .gallery1 {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*image sprites - using one image that has different image in it then using css
+to access the portion instead of using different images that will take some time 
+for the browser to load
+*/

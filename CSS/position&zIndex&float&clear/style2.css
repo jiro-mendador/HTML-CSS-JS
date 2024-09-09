@@ -1,0 +1,26 @@
+.title {
+  text-align: center;
+}
+
+.img1 {
+  position: absolute;
+  z-index:-1;
+  width:500px;
+  height:500px;
+}
+
+.parag1 {
+  color: white;
+  font-size:20px;
+}
+
+.overflow {
+  position:relative;
+  top:500px;
+  left:0;
+  border:3px solid green;
+  height:100px;
+  overflow: visible; /*when the content overflows the alloted height it is still visible*/
+  /*can use auto, scroll, hidden*/
+  padding:5px;
+}

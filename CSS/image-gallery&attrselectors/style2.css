@@ -1,0 +1,98 @@
+.title {
+  text-align: center;
+}
+
+/*attribute selector [attribute] - used to select elements with a specified
+attribute
+ex. a [target] {
+  background-color:yellow;
+}
+*/
+
+a[target] {
+  font-size:20px;
+  background-color:yellow;
+} 
+
+/*u can also specify a value*/
+a[target="_blank"] {
+  text-decoration:none;
+  background-color:black;
+  color:white;
+}
+
+/*another way is using attribute~="value" 
+to select an element with an attr value with a certain word
+*/
+
+[title~="mountain"] {
+  border:5px solid green;
+}
+
+/*used [attribute|="value"] to select elem with the specified attribute,
+whose val is exactly the specified or followed by "-" */
+
+div {
+  padding:10px;
+  border:1px solid black;
+  margin-top:5px;
+}
+
+[class|="top"] {
+  background-color:darkred;
+  color:white;
+}
+
+/*[attribute^="value" used to select elem with the specified attribute,
+whose value starts witht the specified value*/
+
+[class^="he"] {
+  background-color:tomato;
+  color:yellow;
+}
+
+/*[attribute$="value"] used to select elements whose attr val ends with the spec val*/
+[class$="ple"] {
+  background-color:#1e1e1e;
+  color:green;  
+}
+
+/*[attribute*="val" selects elem with attr val has the specified value anywhere*/
+[class*="est"] {
+  background-color:palevioletred;
+  color: white;
+}
+
+/*using it in forms*/
+[for], [value="Submit"] {
+  display:block;
+  margin:10px 0 10px 0;
+}
+
+form {
+  display:block;
+  padding:20px;
+  border:1px solid green;
+  width:50%;
+  margin:10px auto 0 auto;
+}
+
+input[type] {
+  padding:10px 20px;
+  border-radius:10px;
+  border:1px solid gray;
+  width:calc(100% - 42px); /*when calculating the entire width of an element 
+  padding, border and margin are inlucded but only the left and right*/
+  /*so using calc function to compute the width minus the padding and border*/
+}
+
+[type="password"] {
+  color:red;
+}
+
+input[type="button"] {
+  background-color:darkolivegreen;
+  width:100%;
+  color:white;
+}
+ 

@@ -1,0 +1,94 @@
+body {
+  margin:0;
+}
+
+.title {
+  background-color:tomato;
+  padding:10px;
+  color:white;
+}
+
+.title {
+  text-align: center;
+}
+
+/*nav bar = list of links*/
+ul.vertical-nav {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  position:fixed;
+  width:25%;
+  background-color:#f1f1f1;
+  position: fixed;
+  height:100%;
+  overflow:auto;
+}
+
+.vertical-nav li a {
+  display: block;
+  text-decoration:none;
+  font-size:20px;
+  padding:20px;
+  color:black;
+}
+
+.vertical-nav li a:hover {
+  background-color:#555;
+  color:white;
+}
+
+.vertical-nav li a:active {
+  background-color:green;
+}
+
+
+
+.content {
+  position:absolute;
+  left:25%;
+  padding:1px 20px;
+}
+
+
+
+ul.horizontal-nav {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  width:100%;
+  background-color: darkred;
+  position: fixed;
+  bottom:0;
+  overflow:auto;
+}
+
+.horizontal-nav li {
+  float:left;
+}
+
+.horizontal-nav a {
+  display: block;
+  padding:20px 40px;
+  color:white;
+  text-decoration: none;
+}
+
+.horizontal-nav li a:hover {
+  background-color:black;
+}
+
+.horizontal-nav li a:active {
+  background-color:gray;
+}
+
+/*make the hr-nav responsive on small screens*/
+@media screen and (max-width:700px) {
+
+  .horizontal-nav li {
+    float:none;
+    width:75%;
+    text-align:center;
+  }
+
+}

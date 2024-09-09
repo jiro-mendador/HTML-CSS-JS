@@ -1,0 +1,106 @@
+/*
+  CSS - Cascading Style Sheets
+  CSS Selectors = used to find the HTML elements to style
+  Selector Types 
+  Simple = based on name, id, class
+  Combinator =  based on a specific relationship between them 
+  Pseudo-class = based on a certain state
+  Pseudo-element = select and style a part of an element
+  Attribute = based on an attribute or attribute value
+  */
+
+/*element selector*/
+p {
+  text-align: center;
+  color: red;
+}
+
+/*all p element will be center aligned*/
+
+/*id selector*/
+#heading1 {
+  color: green;
+  text-align: center;
+}
+
+/*class selector*/
+.head1 {
+  color: violet;
+  text-align: center;
+}
+
+/*only p elements with class parag1 will be styled*/
+p.parag1 {
+  color: yellowgreen;
+}
+
+/*an element can have multiple class*/
+.color_blue {
+  color: blue;
+}
+
+.large {
+  font-size: 50px;
+}
+
+/*grouping selectors to minimize the code*/
+h2, h3, h4 {
+  color: turquoise; /*text color*/
+  font-size: 30px;
+  background-color: black; /*bgcolor*/
+}
+
+.pborder {
+  border:2px solid tomato; /*border*/
+}
+
+.opcty {
+  background-color:seagreen;
+  opacity:0.3; /*opacity of an element*/
+  color: black;
+}
+
+.bg-opacity {
+  background-color:rgba(255, 0, 0,0.3);
+  color:black;
+}
+
+.bg-img {
+  background-image: url("/HTML/intro/img1.png"); /*bg image*/
+  color:white;
+  background-position:right top; /*starting position of the bg image 
+  or repeats the bg vertical or horizontal x or y */
+  background-repeat: no-repeat; /*showing the bg once*/
+  background-attachment: scroll; /*whether the bg should scroll or fixed*/
+} /*bg shorthand property = color, image, repeat, attachment, position*/
+
+.border {
+  padding:5px;
+  color:black;
+  border-style:solid;
+  border-color:white;
+  border-width:7px; /*all sides are the same width*/
+}
+
+.border-bottom {
+  padding:5px;
+  color:black;
+  border-bottom:1px solid white;
+}
+
+.border-diff-width {
+  border-color:white red green black;
+  border-style:solid;
+  border-width:5px 10px 7px 15px;
+  color: black; /*specific side border color */
+  padding:5px;
+} /*some border attribute can be set individually (border style,color,width)*/
+/*border shorthand = width, style, color*/
+
+.rounded-border {
+  border:2px solid white;
+  border-radius:15px;
+  color: white;
+  padding:5px;
+  font-size:20px;
+}

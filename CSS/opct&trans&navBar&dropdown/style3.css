@@ -1,0 +1,235 @@
+body {
+  padding:25px;
+}
+
+.title {
+  text-align: center;
+}
+
+.dropdown-ex {
+  position:relative;
+  display:inline-block;
+}
+
+.dropdown-content1 {
+  display: none;
+  border: 1px solid green;
+  background-color: #f9f9f9;
+  padding: 10px 20px;
+  /*position: absolute;*/
+  min-width: 160px;
+}
+
+.dropdown-ex:hover {
+  .dropdown-content1 {
+    display: block;
+  }
+}
+
+/*dd list*/
+.dropdown-list {
+  position: relative;
+  display:inline-block;
+}
+
+.dropdown-content2 a {
+  text-decoration: none;
+  padding:10px 10px;
+  display:block;
+  border:1px solid black;
+  text-align: center;
+  background-color:green;
+  color:white;
+}
+
+.dropdown-content2 {
+  display:none;
+}
+
+.dropdown-list:hover .dropdown-content2 {
+  display:block;
+}
+
+.dropdown-content2 a:hover {
+  background-color:white;
+  color:green;
+}
+
+/*shortcut
+.dropdown-ex:hover .dropdown-content {
+  display:block;
+}
+*/
+
+/*dd left*/
+.dropdown-left {
+  position: relative;
+  display: inline-block;
+}
+
+.drop-button-l {
+  padding:10px 20px;
+  background-color:#4CAF50;
+  color: white;
+  border:none;
+}
+
+.dropdown-content3 {
+  display:none;
+  position: absolute;
+  left:0;
+  background-color:#f9f9f9;
+  min-width:160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content3 a {
+  color:black;
+  padding:12px 16px;
+  text-decoration:none;
+  display:block;
+}
+
+.dropdown-left:hover .dropdown-content3 {
+  display:block;
+}
+
+.dropdown-content3 a:hover {
+  background-color:#f1f1f1;
+}
+
+.drop-button-l:hover {
+  background-color:#3e8e41;
+}
+
+
+/*dd right*/
+.dropdown-right {
+  position: relative;
+  float:right;
+}
+
+.drop-button-r {
+  padding:10px 20px;
+  background-color:#4CAF50;
+  border:none;
+  color:white;
+}
+
+.dropdown-content4 {
+  display:none;
+  position: absolute;
+  min-width:160px;
+  right:0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  background-color:#f9f9f9;
+}
+
+.dropdown-content4 a {
+  text-decoration:none;
+  display:block;
+  padding:12px 16px;
+  color: black;
+}
+
+.drop-button-r:hover {
+  background-color: #3e8e41;
+}
+
+.dropdown-right:hover .dropdown-content4 {
+  display:block;
+} 
+
+.dropdown-content4 a:hover {
+  background-color: #f1f1f1;
+}
+
+/*image hover*/
+.image-hover-parent {
+  position: relative;
+  display:inline-block; /*the width will only be equal to the contents width*/
+}
+
+.image-hov {
+  width:100px;
+  height:75px;
+}
+
+.image-content1 {
+  display:none;
+  position: absolute; /*so that when image is shows the divs width will not increase*/
+  box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index:1; /*to make sure it is in front*/
+  min-width:160px;
+  background-color: #f9f9f9;
+}
+
+.image1 {
+  width:300px;
+  height:200px;
+}
+
+.image-text {
+  text-align:center;
+}
+
+.image-hover-parent:hover .image-content1 {
+  display:block;
+}
+
+/*dd inside a nav*/
+ul {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  width:100%;
+  overflow:hidden;
+  background-color:black;
+}
+
+ul li {
+  float:left;
+}
+
+ul li:hover {
+  background-color:darkred;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li:nth-child(3) {
+  display:inline-block;
+}
+
+.nav-dd-content {
+  display:none;
+  position:absolute;
+  z-index:1;
+  min-width:160px;
+  background-color:#f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.nav-dd-content a {
+  color:black;
+  padding:12px 16px;
+  text-decoration:none;
+  display:block;
+  text-align:left;
+}
+
+li:nth-child(3):hover .nav-dd-content{
+  display:block;
+}
+
+.nav-dd-content a:hover {
+  background-color:#f1f1f1;
+}

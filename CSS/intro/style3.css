@@ -1,0 +1,38 @@
+.title1, .title2 {
+  text-align: center;
+}
+
+/*
+height and width values 
+auto = default, browser calculates
+length = px, cm
+% = percent of the containing block
+initial = set the height/width to its default value
+inherit = inherit from parent's
+*/
+
+.height-width {
+  height:200px; /*height*/
+  max-width:50%; /*width*/
+  background-color:powderblue;
+} /*height and width propert do not include padding,border, or margins*/
+
+/* without max-width when the window is smaller than the width the browser will add a scrollbar*/
+.max-width {
+  max-width:500px; /*with max-width the window cannot be adjusted smaller than the smallest max-width */
+  height:100px;
+  background-color: wheat;
+} /*same logic for max-height. min width and height*/
+
+/*
+CSS Box Model = used when talking abot desing and layout, a box that wraps around every element
+it consists of margins, borders, padding, and the actual content.
+*/
+
+.box-model {
+  padding:10px;
+  border:5px solid green;
+  margin:20px;
+  width:500px;
+}
+

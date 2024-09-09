@@ -1,0 +1,23 @@
+.title {
+  text-align: center;
+}
+
+/*
+default display for most elements
+block = start on new line, takes up the full width (div, h1, p, form, header, footer, section)
+inline = only takes necessary space (span, a , img)
+ */
+
+ .parag1 {
+  display:none;
+ }
+ 
+ .parag2 {
+  visibility: hidden;
+ }
+
+ /*
+ difference of hidden and none
+ hidden = still takes up space
+ none = removes the element from the page
+ */

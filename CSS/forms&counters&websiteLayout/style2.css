@@ -1,0 +1,35 @@
+.title {
+  text-align: center;
+}
+
+/*
+counters = vars maintained by css whose values can be incre by CSS rules
+properties :
+counter-reset - create / reset
+counter-increment - increment counter
+content - inserts generated content
+counter() or counters() - adds the value of a counter to an element
+*/
+
+body {
+  counter-reset: section sec;
+}
+
+h2::before {
+  counter-increment:section;
+  content:"Chapter " counter(section) ": ";
+}
+
+h3::before {
+  counter-increment:sec;
+  content:"Topic #" counter(sec) ": ";
+}
+
+h3 {
+  counter-reset: se;
+}
+
+h4::before {
+  counter-increment:se;
+  content:"Sub-Topic " counter(sec) "." counter(se) " ";
+}

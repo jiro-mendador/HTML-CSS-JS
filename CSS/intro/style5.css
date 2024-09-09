@@ -1,0 +1,98 @@
+.t1, .t2, .t3, .t4, .t5, .t6 {
+  text-align:center; /*horizontal alignment of text element*/
+}
+
+.text-align {
+  text-align: right;
+}
+
+.text-align-last {
+  text-align:center;
+  text-align-last: right;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+/*text direction and unicode-bidi = used to change the text dirextion*/
+.text-direction {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+
+/*vertical alignment = the vertical alignment of an element*/
+.img1 {
+  height:9px;
+  width:9px;
+  vertical-align:baseline; /*other value : text-top, text-bottom, super, sub*/
+}
+
+/*text-decoration*/
+.text-decoration-line {
+  text-decoration-line: overline; 
+}
+
+.text-decoration-line-through {
+  font-size:25px;
+  text-decoration-line: line-through; /*underline*/
+  text-decoration-color:red; /*color of the line*/
+  text-decoration-style: dotted; /*style of the line like in the border*/
+  text-decoration-thickness:5px; /*thickness of the line*/
+} 
+
+/*text-decoration shorthand = line, color, style, thickness*/
+.text-decoration-shorthand {
+  font-size:25px;
+  text-decoration:underline  blue dashed 10px;
+}
+
+a {
+  text-decoration:none; /*removes the default underline in the <a> (link) element*/
+}
+
+/*text transform = specify the casing of the letters*/
+p.text-transform-uppercase {
+  text-transform: uppercase;
+}
+
+p.text-transform-lowercase {
+  text-transform: lowercase;
+}
+
+p.text-transform-capitalize {
+  text-transform: capitalize;
+}
+
+/*spacing in text*/
+p.text-indent {
+  text-indent:50px; /*indention of the first line of text*/
+}
+
+p.letter-spacing {
+  letter-spacing:5px; /*spacing between letters*/
+ }
+
+p.line-height {
+  line-height:3; /*spacing between the lines*/
+}
+
+p.word-spacing {
+  word-spacing:10px; /*spaces between words*/
+}
+
+p.white-space {
+  white-space: pre-wrap; /*how white space in an element is handled*/
+}
+
+/*text-shadow : adds shadow to a text*/
+p.text-shadow1 {
+  text-align:center;
+  font-size:30px;
+  text-shadow:1px 1px 2px black,0 0 25px red, 0 0 5px darkred;
+  color:white;
+}
+
+
+

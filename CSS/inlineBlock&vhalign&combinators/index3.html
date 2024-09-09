@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combinators part 1</title>
+  <link rel="stylesheet" href="style3.css">
+</head>
+
+<body>
+
+  <h1 class="title">Combinators</h1>
+  <div class="descendant">
+    <p>This element is accessed using descendant selector (space)</p>
+    <div>
+      <p>This element is accessed using descendant selector (space)</p>
+    </div>
+    <p>This element is accessed using descendant selector (space)</p>
+  </div>
+
+  <div class="child">
+    <p>This element is accessed using child selector (>)</p>
+    <div>
+      <p>This element cannot be accessed using child selector (>)</p>
+    </div>
+    <p>This element is accessed using child selector (>)</p>
+  </div>
+
+  <div class="adjacent">
+    <p>This element cannot be accessed using adjacent selector (+)</p>
+    <div>
+      <p>This element cannot be accessed adjacent child selector (+)</p>
+    </div>
+    <p>This element cannot be accessed using adjacent selector (+)</p>
+  </div>
+  <p>This element is accessed using adjacent selector (+)</p>
+  <p>This element cannot be accessed using adjacent selector (+)</p>
+
+  <div class="general">
+    <p>This element cannot be accessed using general sibling selector (~)</p>
+    <div>
+      <p>This element cannot be accessed general sibling child selector (~)</p>
+    </div>
+    <p>This element cannot be accessed using general sibling selector (~)</p>
+  </div>
+  <p>This element is accessed using general sibling selector (~)</p>
+  <p>This element cannot be accessed using general sibling selector (~)</p>
+
+
+</body>
+
+</html>

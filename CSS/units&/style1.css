@@ -1,0 +1,68 @@
+.title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/*
+CSS UNITS absolute and relative
+absolute - units are fixed, not recommended for screens only for print layout
+(cm,mm,in,px *,pt,pc)
+relative - length relative to another length property, scales better between diff mediums
+(em,ex,ch,rem,vw,vh,vmin,vmax,%)
+*/
+
+/*
+specificity
+(highest)
+inline style
+id
+class
+selector
+(lowest)
+*/
+
+/*
+!important - a rule in CSS used to add more importance to property/value than normal,
+*/
+
+#p1 {
+  background-color: green;
+}
+
+.parag1 {
+  background-color: yellow;
+}
+
+p {
+  background-color: black !important;
+  /*even if id has higher prio it is override by !important*/
+  color: white;
+  padding: 10px;
+}
+
+
+/*math function - allows mathematical expressions to be used a property values
+calc() - performs calculation to be used as the property value
+max() - uses the largest value, from comma-separated value 
+min() - opposite of max()
+*/
+
+div {
+  padding: 10px;
+  border: 1px solid green;
+  margin: 0 0 10px 0;
+}
+
+div.calc-div {
+  width: calc(100px + 10px + 1px);
+}
+
+div.max-div {
+  width:100px;
+  height:max(200px, 10px);
+} 
+
+div.min-div {
+  width:min(500px, 250px);
+  height:100px;
+} 

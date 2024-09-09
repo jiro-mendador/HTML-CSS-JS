@@ -1,0 +1,73 @@
+.title {
+  text-align: center;
+}
+
+/*
+psuedo classes = define a special state of an element 
+*/
+
+a:link { /*unvisited*/
+  color: tomato;
+}
+
+a:visited { 
+  color: teal;
+}
+
+a:hover { /*mouse on-top*/
+  text-align: center;
+  font-size:30px;
+}
+
+a:active { /*selected*/
+  color:yellowgreen;
+}
+
+p:first-child {
+  color:red;
+}
+
+p i:first-child { /*selects the first i inside a p element*/
+  color:blue;
+}
+
+p:first-child b {/*selects the first p and the all the b element in it*/
+  color:green;
+}
+
+/*
+pseudo element = used to style a specified part of an element
+*/
+
+.pseudo-element p::first-line {
+  background-color:tomato;
+  color:white;
+}
+
+.pseudo-element p::first-letter { /*can only be applied to block level elements*/
+  font-weight: bold;
+  color:black;
+  font-size:30px;
+}
+
+.before::before { /*place a content before the element*/
+  content:url(/HTML/intro/favicon.ico);
+}
+
+.after::after { /*place a content after the element*/
+  content:url(/HTML/intro/favicon.ico);
+}
+
+ul li, ol li {
+  font-size:20px;
+}
+
+ul li::marker, ol li::marker { /*styles the marker on list items*/
+  color:red;
+  font-size:20px;
+}
+
+.selection::selection {
+  color:white;
+  background-color: black;
+}

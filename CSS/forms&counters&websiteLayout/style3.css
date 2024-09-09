@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin:0;
+}
+
+/*header - located at the top of the website(or below the nav menu) contains
+logo or website name*/
+.header, .footer {
+  text-align: center;
+  padding: 20px;
+}
+
+.header {
+  background-color: #f1f1f1;
+}
+
+.footer {
+  background-color: #1e1e1e;
+  color:white;
+}
+
+.nav-menu {
+  width: 100%
+    /*calc(100% - 20px) using box-sizing we dont have to use this anymore*/
+  ;
+  background-color: #1e1e1e;
+}
+
+.nav-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  /*a trick to make the li next to each other no invi gap 
+  caused by whitespace in html's 
+  another way is to comment the next line like this </a><!-- --><li>*/
+  overflow: auto;
+}
+
+.nav-menu li {
+  text-align: center;
+  width:25%;
+  display: inline-block;
+  font-size: 15px;
+  transition: width 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.nav-menu a {
+  display:block;
+  text-decoration: none;
+  color: white;
+  padding:15px 10px;
+}
+
+.nav-menu li:hover {
+  background-color: #04aa6dff;
+}
+
+/*contents*/
+
+.col {
+  width: 33.33333%;
+  float: left;
+  padding: 10px 20px;
+  text-align: justify;
+}
+
+.col h2, .row2-col h3 {
+  transition:color 0.3s ease-in-out;
+  transition:letter-spacing 0.3s ease-in-out;
+}
+
+.row::after {
+  /*dont forget when using float*/
+  content:"";
+  clear: both;
+  display: table;
+}
+
+.row2-col {
+  float: left;
+  width:50%;
+  padding:10px 20px;
+}
+
+.col:hover h2, .row2-col:hover h3 {
+  color:#04aa6dff;
+  letter-spacing:5px;
+}
+
+/*footer - at the bottom of the page contains copyright and contact info*/
+
+
+@media only screen and (max-width:600px) {
+  .col, .row2-col {
+    width: 100%;
+  }
+  .nav-menu li {
+    display: block;
+    width:auto;
+  }
+}
